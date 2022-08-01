@@ -23,16 +23,29 @@
         background-color: mintcream;
         font-family: Arial, Helvetica, sans-serif;
       }
-      section {
+      li {
+        line-height: 1.5;
+      }
+      footer {
+        letter-spacing: 1px;
+        text-align: center;
+      }
+      a {
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      a:visited {
+        color: rgb(0, 0, 238);
+      }
+      .code {
+        background-color: lavender;
+      }
+      .text {
         margin: calc(4% + 2px);
         width: clamp(200px, 80%, 1000px)
       }
-        li {
-          line-height: 1.5;
-        }
-        .code {
-            background-color: lavender;
-        }
       #leaflet-map {
         width: 100%;
         height: 75vh;
@@ -43,7 +56,7 @@
     <main>
       <div id="leaflet-map"></div>
     </main>
-    <section>
+    <section class="text">
       <h1>Leaflet Application Experiment</h1>
       <h3>Steps:</h3>
       <ol>
@@ -63,7 +76,7 @@
             100% and height: 100vh will render a full-screen map). (For more involved styling, consider using a separate stylesheet.)
         </li>
         <li>Add a script tag above the body's closing tag. (Consider using a separate JS file for more involved projects.)</li>
-        <li>Inside the script tag, declare a map variable and use the syntax from Leaflet's <a href="https://leafletjs.com/index.html" title="Leaflet's overview" target="_blank">overview</a>. Explanation of the syntax below:</li>
+        <li>Inside the script tag, declare a map variable and use the syntax from Leaflet's <a href="https://leafletjs.com/index.html" title="To Leaflet's overview" target="_blank">overview</a>. Explanation of the syntax below:</li>
         <ul>
             <li> Here is the sample given: <span class="code">var map = L.map('map').setView([51.505, -0.09], 13);</span></li>
             <ul>
@@ -75,7 +88,7 @@
                 </ul>
             </ul>
         </ul>
-        <li>Include the next line of code from Leaflet's <a href="https://leafletjs.com/index.html" title="Leaflet's overview" target="_blank">overview</a> to add the tile layer to the map.</li>
+        <li>Include the next line of code from Leaflet's <a href="https://leafletjs.com/index.html" title="To Leaflet's overview" target="_blank">overview</a> to add the tile layer to the map.</li>
         <ul>
             <li>Here is the sample given: 
                 <span class="code">L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy;  <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);</span>
@@ -87,6 +100,10 @@
             <li>Call the addTo(map) function on this new variable (e.g. <span class="code">openStreetMap.addTo(map)</span> for improved legibility).</li>
         </ul>
     </section>
+    <hr />
+    <footer class="text">
+      <h5><a href="https://github.com/AddyLopez/leaflet-app" title="To GitHub repository for this project" target="_blank">Open-source code</a> by <a href="https://ubiquitous-froyo-69b6d7.netlify.app/" title="To Addy's personal website" target="_blank">Addy López</a>.</h5>
+    </footer>
     <script>
          // Initialization of OpenStreetMap
         const map = L.map('leaflet-map').setView([35.0844900, -106.6511400], 13);
