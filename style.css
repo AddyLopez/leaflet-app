@@ -5,7 +5,8 @@ body {
 ul {
   padding-left: 25px;
 }
-li {
+li,
+p {
   line-height: 1.5;
 }
 footer {

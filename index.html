@@ -18,18 +18,20 @@
     crossorigin=""
     ></script>
     <link rel="stylesheet" href="style.css">
-    <title>Leaflet Application</title>
+    <title>Leaflet Tutorial</title>
   </head>
   <body>
     <main>
       <div id="leaflet-map"></div>
     </main>
     <section class="text">
-      <h1>Leaflet Application Experiment</h1>
+      <h1>Leaflet Tutorial</h1>
+        <h3>Background Information:</h3>
+          <p>According to its home page, <a href="https://leafletjs.com/" title="To Leaflet's home page" target="_blank">Leaflet</a> was created "11 years ago by Volodymyr Agafonkin, a Ukrainian citizen" and is "the leading open-source JavaScript library for mobile-friendly interactive maps." This web page provides a short step-by-step tutorial for developers to get started with Leaflet in order to build interactive map features that can be integrated with other data. After learning how to use Leaflet, I wanted to spread that knowledge to my development community and also pay a small tribute to the Ukrainian people by supporting Ukranian web development.</p>
       <h3>Steps:</h3>
       <ol>
         <li>
-          Import Leaflet's CSS and JS by copying and pasting the link and script
+          Import Leaflet's <abbr title="Cascading Style Sheets">CSS</abbr> and <abbr title="JavaScript">JS</abbr> by copying and pasting the link and script
           tags from the
           <a
           href="https://leafletjs.com/download.html"
@@ -43,15 +45,16 @@
           Inside a style tag in the head, assign width and height to the map using the ID's selector (width:
           100% and height: 100vh will render a full-screen map). (For more involved styling, consider using a separate stylesheet.)
         </li>
-        <li>Add a script tag above the body's closing tag. (Consider using a separate JS file for more involved projects.)</li>
+        <li>Add a script tag above the body's closing tag. (Consider using a separate <abbr title="JavaScript">JS</abbr> file for more involved projects.)</li>
         <li>Inside the script tag, declare a map variable and use the syntax from Leaflet's <a href="https://leafletjs.com/index.html" title="To Leaflet's overview" target="_blank">overview</a>. Explanation of the syntax below:</li>
         <ul>
           <li> Here is the sample given: <br />
             <span class="code">var map = L.map('map').setView([51.505, -0.09], 13);</span></li>
             <ul>
+              <li>On the left side of the equal sign, the variable named "map" is declared. (<strong>Note to new developers:</strong> "var" is the <a href="https://www.codecademy.com/article/javascript-versions" target="_blank" title="Learn about JavaScript Versions: ES6 and Before on Codecademy">pre-<abbr title="ECMAScript 6">ES6</abbr></a> convention for declaring variables. Substitution of "var" by either of the now-common keywords "let" or "const" is fine here.</li>
               <li>The "L" signifies "Leaflet."</li>
               <li>After the dot operator and the function "map," include the map's ID from step 2 as the argument. Wrap the ID in quotation marks.</li>
-              <li>The purpose of the setView function is to determine the default coordinates and zoom level for the map. The function takes the coordinates [latitude, longitude] as the first argument and an integer designating the zoom level as a second argument.</li>
+              <li>The purpose of the setView method is to determine the default coordinates and zoom level for the map. The method takes the coordinates [latitude, longitude] as the first argument and an integer designating the zoom level as a second argument.</li>
               <ul>
                 <li><strong>A note about the zoom level:</strong> decrement the integer to zoom out; increment the integer to zoom in.</li>
               </ul>
@@ -64,10 +67,10 @@
               <span class="code">L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy;  <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);</span>
             </li>
             <ul>
-              <li><strong>Note:</strong> Copy the code directly from the documentation, not from the sample given above. The user agent rendered the symbol for copyright and the anchor link wrapping "OpenStreetMap," interpreting the code instead of directly transcribing it character by character here.</li>
+              <li><strong>Note:</strong> Copy the attribution's code directly from the documentation, not from the sample given above. The browser's user agent rendered the symbol for copyright and the anchor link wrapping "OpenStreetMap," interpreting the code instead of faithfully transcribing it character by character here.</li>
             </ul>
             <li>Assign this code to a variable (e.g. <span class="code">const openStreetMap = L.tileLayer</span> etc.)</li>
-            <li>Call the addTo(map) function on this new variable (e.g. <span class="code">openStreetMap.addTo(map)</span> for improved legibility).</li>
+            <li>Call the addTo(map) method on this new variable (e.g. <span class="code">openStreetMap.addTo(map)</span> for improved legibility).</li>
           </ul>
         </section>
         <hr />
