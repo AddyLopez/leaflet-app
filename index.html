@@ -31,7 +31,7 @@
       <h3>Steps:</h3>
       <ol>
         <li>
-          Import Leaflet's <abbr title="Cascading Style Sheets">CSS</abbr> and <abbr title="JavaScript">JS</abbr> by copying and pasting the link and script
+          Import Leaflet's <abbr title="Cascading Style Sheets">CSS</abbr> and <abbr title="JavaScript">JS</abbr> to your index.html file by copying and pasting the link and script
           tags from the
           <a
           href="https://leafletjs.com/download.html"
@@ -39,13 +39,28 @@
           target="_blank"
           >documentation</a
           >.
-        </li>
-        <li>Create a div and assign it an ID to target the map.</li>
+        <li>Create a div and assign it an ID to target the map. (Use a descriptive name, such as "map" or "leaflet-map.")</li>
         <li>
-          Inside a style tag in the head, assign width and height to the map using the ID's selector (width:
-          100% and height: 100vh will render a full-screen map). (For more involved styling, consider using a separate stylesheet.)
+          Inside a style tag in the head, assign width and height to the map using the ID's selector. It is a requirement to assign a height to the map for Leaflet to work.  (<strong>Tip:</strong> a rule set of {width:
+          100%; height: 100<abbr title="viewport height">vh</abbr>;} will render a full-screen map).
         </li>
-        <li>Add a script tag above the body's closing tag. (Consider using a separate <abbr title="JavaScript">JS</abbr> file for more involved projects.)</li>
+          <ul>
+            <li>
+              To select an ID in <abbr title="Cascading Style Sheets">CSS</abbr>, prepend the name of the ID with a pound sign (for an ID of "map", write #map).
+            </li>
+            <li>
+              For more involved styling, consider linking to a separate stylesheet in the head tag of your <abbr title="Hypertext Markup Language">HTML</abbr> file.
+            </li>
+            <li>
+              For more information on how to style the map for mobile devices, see <a href="https://leafletjs.com/examples/mobile/" title="To Leaflet on Mobile Tutorial" target="_blank">Leaflet on Mobile</a>.
+            </li>
+          </ul>
+        <li>Add a script tag above the body's closing tag.</li>
+          <ul>
+            <li>
+Consider using a separate <abbr title="JavaScript">JS</abbr> file for more involved projects. (Simply add an <em>src</em> attribute to the script tag and include the name of the file where you will write your JS, such as index.js, there.)
+            </li>
+          </ul>
         <li>Inside the script tag, declare a map variable and use the syntax from Leaflet's <a href="https://leafletjs.com/index.html" title="To Leaflet's overview" target="_blank">overview</a>. Explanation of the syntax below:</li>
         <ul>
           <li> Here is the sample given: <br />
@@ -70,7 +85,7 @@
               <li><strong>Note:</strong> Copy the attribution's code directly from the documentation, not from the sample given above. The browser's user agent rendered the symbol for copyright and the anchor link wrapping "OpenStreetMap," interpreting the code instead of faithfully transcribing it character by character here.</li>
             </ul>
             <li>Assign this code to a variable (e.g. <span class="code">const openStreetMap = L.tileLayer</span> etc.)</li>
-            <li>Call the addTo(map) method on this new variable (e.g. <span class="code">openStreetMap.addTo(map)</span> for improved legibility).</li>
+            <li>Call the addTo(map) method on this new variable (e.g. <span class="code">openStreetMap.addTo(map);</span> for improved legibility).</li>
           </ul>
         </section>
         <hr />
