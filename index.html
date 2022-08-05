@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
     <!-- Leaflet CSS -->
     <link
       rel="stylesheet"
@@ -18,39 +19,6 @@
       crossorigin=""
     ></script>
     <title>Leaflet Application</title>
-    <style>
-      body {
-        background-color: mintcream;
-        font-family: Arial, Helvetica, sans-serif;
-      }
-      li {
-        line-height: 1.5;
-      }
-      footer {
-        letter-spacing: 1px;
-        text-align: center;
-      }
-      a {
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-      a:visited {
-        color: rgb(0, 0, 238);
-      }
-      .code {
-        background-color: lavender;
-      }
-      .text {
-        margin: calc(4% + 2px);
-        width: clamp(200px, 80%, 1000px)
-      }
-      #leaflet-map {
-        width: 100%;
-        height: 75vh;
-      }
-    </style>
 </head>
 <body>
     <main>
@@ -78,7 +46,8 @@
         <li>Add a script tag above the body's closing tag. (Consider using a separate JS file for more involved projects.)</li>
         <li>Inside the script tag, declare a map variable and use the syntax from Leaflet's <a href="https://leafletjs.com/index.html" title="To Leaflet's overview" target="_blank">overview</a>. Explanation of the syntax below:</li>
         <ul>
-            <li> Here is the sample given: <span class="code">var map = L.map('map').setView([51.505, -0.09], 13);</span></li>
+            <li> Here is the sample given: <br />
+              <span class="code">var map = L.map('map').setView([51.505, -0.09], 13);</span></li>
             <ul>
                 <li>The "L" signifies "Leaflet."</li>
                 <li>After the dot operator and the function "map," include the map's ID from step 2 as the argument. Wrap the ID in quotation marks.</li>
@@ -90,7 +59,8 @@
         </ul>
         <li>Include the next line of code from Leaflet's <a href="https://leafletjs.com/index.html" title="To Leaflet's overview" target="_blank">overview</a> to add the tile layer to the map.</li>
         <ul>
-            <li>Here is the sample given: 
+            <li>Here is the sample given:
+              <br />
                 <span class="code">L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy;  <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);</span>
             </li>
             <ul>
