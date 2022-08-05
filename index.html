@@ -4,23 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
     <!-- Leaflet CSS -->
     <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-      integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-      crossorigin=""
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""
     />
     <!-- Leaflet JS -->
     <script
-      src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-      integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-      crossorigin=""
+    src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""
     ></script>
+    <link rel="stylesheet" href="style.css">
     <title>Leaflet Application</title>
-</head>
-<body>
+  </head>
+  <body>
     <main>
       <div id="leaflet-map"></div>
     </main>
@@ -32,54 +32,49 @@
           Import Leaflet's CSS and JS by copying and pasting the link and script
           tags from the
           <a
-            href="https://leafletjs.com/download.html"
-            title="To Leaflet's official documentation"
-            target="_blank"
-            >documentation</a
+          href="https://leafletjs.com/download.html"
+          title="To Leaflet's official documentation"
+          target="_blank"
+          >documentation</a
           >.
         </li>
         <li>Create a div and assign it an ID to target the map.</li>
         <li>
-            Inside a style tag in the head, assign width and height to the map using the ID's selector (width:
-            100% and height: 100vh will render a full-screen map). (For more involved styling, consider using a separate stylesheet.)
+          Inside a style tag in the head, assign width and height to the map using the ID's selector (width:
+          100% and height: 100vh will render a full-screen map). (For more involved styling, consider using a separate stylesheet.)
         </li>
         <li>Add a script tag above the body's closing tag. (Consider using a separate JS file for more involved projects.)</li>
         <li>Inside the script tag, declare a map variable and use the syntax from Leaflet's <a href="https://leafletjs.com/index.html" title="To Leaflet's overview" target="_blank">overview</a>. Explanation of the syntax below:</li>
         <ul>
-            <li> Here is the sample given: <br />
-              <span class="code">var map = L.map('map').setView([51.505, -0.09], 13);</span></li>
+          <li> Here is the sample given: <br />
+            <span class="code">var map = L.map('map').setView([51.505, -0.09], 13);</span></li>
             <ul>
-                <li>The "L" signifies "Leaflet."</li>
-                <li>After the dot operator and the function "map," include the map's ID from step 2 as the argument. Wrap the ID in quotation marks.</li>
-                <li>The purpose of the setView function is to determine the default coordinates and zoom level for the map. The function takes the coordinates [latitude, longitude] as the first argument and an integer designating the zoom level as a second argument.</li>
-                <ul>
-                    <li><strong>A note about the zoom level:</strong> decrement the integer to zoom out; increment the integer to zoom in.</li>
-                </ul>
+              <li>The "L" signifies "Leaflet."</li>
+              <li>After the dot operator and the function "map," include the map's ID from step 2 as the argument. Wrap the ID in quotation marks.</li>
+              <li>The purpose of the setView function is to determine the default coordinates and zoom level for the map. The function takes the coordinates [latitude, longitude] as the first argument and an integer designating the zoom level as a second argument.</li>
+              <ul>
+                <li><strong>A note about the zoom level:</strong> decrement the integer to zoom out; increment the integer to zoom in.</li>
+              </ul>
             </ul>
-        </ul>
-        <li>Include the next line of code from Leaflet's <a href="https://leafletjs.com/index.html" title="To Leaflet's overview" target="_blank">overview</a> to add the tile layer to the map.</li>
-        <ul>
+          </ul>
+          <li>Include the next line of code from Leaflet's <a href="https://leafletjs.com/index.html" title="To Leaflet's overview" target="_blank">overview</a> to add the tile layer to the map.</li>
+          <ul>
             <li>Here is the sample given:
               <br />
-                <span class="code">L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy;  <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);</span>
+              <span class="code">L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy;  <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);</span>
             </li>
             <ul>
-                <li><strong>Note:</strong> Copy the code directly from the documentation, not from the sample given above. The user agent rendered the symbol for copyright and the anchor link wrapping "OpenStreetMap," interpreting the code instead of directly transcribing it character by character here.</li>
+              <li><strong>Note:</strong> Copy the code directly from the documentation, not from the sample given above. The user agent rendered the symbol for copyright and the anchor link wrapping "OpenStreetMap," interpreting the code instead of directly transcribing it character by character here.</li>
             </ul>
             <li>Assign this code to a variable (e.g. <span class="code">const openStreetMap = L.tileLayer</span> etc.)</li>
             <li>Call the addTo(map) function on this new variable (e.g. <span class="code">openStreetMap.addTo(map)</span> for improved legibility).</li>
-        </ul>
-    </section>
-    <hr />
-    <footer class="text">
-      <h5><a href="https://github.com/AddyLopez/leaflet-app" title="To GitHub repository for this project" target="_blank">Open-source code</a> by <a href="https://ubiquitous-froyo-69b6d7.netlify.app/" title="To Addy's personal website" target="_blank">Addy López</a>.</h5>
-    </footer>
-    <script>
-         // Initialization of OpenStreetMap
-        const map = L.map('leaflet-map').setView([35.0844900, -106.6511400], 13);
-        const openStreetMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'})
-
-        openStreetMap.addTo(map);
-    </script>
-  </body>
-</html>
+          </ul>
+        </section>
+        <hr />
+        <footer class="text">
+          <h5><a href="https://github.com/AddyLopez/leaflet-app" title="To GitHub repository for this project" target="_blank">Open-source code</a> by <a href="https://ubiquitous-froyo-69b6d7.netlify.app/" title="To Addy's personal website" target="_blank">Addy López</a>.</h5>
+        </footer>
+        <script src="index.js"></script>
+      </body>
+      </html>
+      
