@@ -75,14 +75,21 @@ const firstMarker = L.marker([50.4501, 30.5234], {
   icon: customIcon,
 });
 const firstMarkerPopup = firstMarker
-  .bindPopup("I am a popup!" + firstMarker.getLatLng())
+  .bindPopup("I am a popup on the custom icon!" + firstMarker.getLatLng())
+  .openPopup();
+firstMarkerPopup.addTo(map);
+
+// second marker:
+const secondMarker = L.marker([50.4501, 33.5234]);
+const secondMarkerPopup = secondMarker
+  .bindPopup("I am the default marker's popup!")
   .openPopup();
 firstMarkerPopup.addTo(map);
 
 // Logs GeoJSON object in the console:
 console.log(firstMarker.toGeoJSON());
 
-// Tile layer controler
+// Tile layer controller
 const baseMaps = {
   "Open Street Map": openStreetMap,
   "NASAGIBS Earth at Night 2012": NASAGIBS_ViirsEarthAtNight2012,
@@ -92,7 +99,8 @@ const baseMaps = {
 };
 
 const overlayMaps = {
-  Marker: firstMarker,
+  "Custom Marker": firstMarker,
+  "Default Marker": secondMarker,
 };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
@@ -111,5 +119,7 @@ map.on("mousemove", function (event) {
     " <strong>lng:</strong> " +
     event.latlng.lng;
 });
+
+// Leaflet Geocoder plug-in that adds a search engine to the map
 
 L.Control.geocoder().addTo(map);
