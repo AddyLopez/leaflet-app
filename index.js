@@ -96,3 +96,20 @@ const overlayMaps = {
 };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+// Leaflet Events:
+// mouseover:
+map.on("mouseover", function () {
+  console.log("The mouse is on the map.");
+});
+// mousemove (Displays the coordinates of the mouse wherever it is over the map.)
+
+map.on("mousemove", function (event) {
+  document.getElementById("coordinates").innerHTML =
+    "<strong>lat:</strong> " +
+    event.latlng.lat +
+    " <strong>lng:</strong> " +
+    event.latlng.lng;
+});
+
+L.Control.geocoder().addTo(map);

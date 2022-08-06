@@ -17,12 +17,19 @@
     integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
     crossorigin=""
     ></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="index.js" async></script>
     <title>Leaflet Tutorial</title>
   </head>
   <body>
     <main>
-      <div id="leaflet-map"></div>
+      <div id="leaflet-map">
+          <div id="coordinates" class="leaflet-control">
+
+          </div>
+      </div>
     </main>
     <section class="text">
       <h1>Leaflet Tutorial</h1>
@@ -93,7 +100,6 @@ Consider using a separate <abbr title="JavaScript">JS</abbr> file for more invol
           <small><a href="https://www.flaticon.com/free-icons/temperature" title="temperature icons">Temperature icons created by Freepik - Flaticon</a></small>
           <h5><a href="https://github.com/AddyLopez/leaflet-app" title="To GitHub repository for this project" target="_blank">Open-source code</a> by <a href="https://ubiquitous-froyo-69b6d7.netlify.app/" title="To Addy's personal website" target="_blank">Addy López</a>.</h5>
         </footer>
-        <script src="index.js"></script>
       </body>
       </html>
       
