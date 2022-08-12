@@ -32,7 +32,8 @@ a:active {
   margin: calc(4% + 2px) auto;
   width: clamp(200px, 75%, 1000px);
 }
-.leaflet-popup-content-wrapper {
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
   background-color: black;
   color: white;
 }

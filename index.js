@@ -1,7 +1,7 @@
 // Initialization of OpenStreetMap
 const map = L.map("leaflet-map").setView([50.4501, 30.5234], 4);
 
-// Open Street Map tile layer
+// OpenStreetMap tile layer
 const openStreetMap = L.tileLayer(
   "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   {
@@ -12,45 +12,43 @@ const openStreetMap = L.tileLayer(
 
 openStreetMap.addTo(map);
 
-// NASAGIBS_ViirsEarthAtNight2012 tile layer:
-const NASAGIBS_ViirsEarthAtNight2012 = L.tileLayer(
-  "https://map1.vis.earthdata.nasa.gov/wmts-webmerc/VIIRS_CityLights_2012/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}",
+// OpenTopoMap tile layer
+
+const openTopoMap = L.tileLayer(
+  "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
   {
+    maxZoom: 17,
     attribution:
-      'Imagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href="https://earthdata.nasa.gov">ESDIS</a>) with funding provided by NASA/HQ.',
-    bounds: [
-      [-85.0511287776, -179.999999975],
-      [85.0511287776, 179.999999975],
-    ],
-    minZoom: 1,
-    maxZoom: 8,
-    format: "jpg",
-    time: "",
-    tilematrixset: "GoogleMapsCompatible_Level",
+      'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
   }
 );
+openTopoMap.addTo(map);
 
-NASAGIBS_ViirsEarthAtNight2012.addTo(map);
+// Stalia_AlidadeSmoothDark tile layer
 
-// Google Street tile layer:
-const googleStreet = L.tileLayer(
-  "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
+const stadia_AlidadeSmoothDark = L.tileLayer(
+  "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
   {
     maxZoom: 20,
-    subdomains: ["mt0", "mt1", "mt2", "mt3"],
+    attribution:
+      '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
   }
 );
-googleStreet.addTo(map);
 
-// Google Satellite tile layer:
-const googleSatellite = L.tileLayer(
-  "http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+stadia_AlidadeSmoothDark.addTo(map);
+
+// Stadia_OSMBright tile layer
+
+const stadia_OSMBright = L.tileLayer(
+  "https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png",
   {
     maxZoom: 20,
-    subdomains: ["mt0", "mt1", "mt2", "mt3"],
+    attribution:
+      '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
   }
 );
-googleSatellite.addTo(map);
+
+stadia_OSMBright.addTo(map);
 
 // Custom Icon for Marker:
 const customIcon = L.icon({
@@ -71,36 +69,36 @@ const esri_NatGeoWorldMap = L.tileLayer(
 esri_NatGeoWorldMap.addTo(map);
 
 // Leaflet Marker:
-const firstMarker = L.marker([50.4501, 30.5234], {
+const customMarker = L.marker([50.4501, 30.5234], {
   icon: customIcon,
 });
-const firstMarkerPopup = firstMarker
-  .bindPopup("I am a popup on the custom icon!" + firstMarker.getLatLng())
+const customMarkerPopup = customMarker
+  .bindPopup("I am a popup on the custom icon! " + customMarker.getLatLng())
   .openPopup();
-firstMarkerPopup.addTo(map);
+customMarkerPopup.addTo(map);
 
 // second marker:
-const secondMarker = L.marker([50.4501, 33.5234]);
-const secondMarkerPopup = secondMarker
+const defaultMarker = L.marker([50.4501, 33.5234]);
+const defaultMarkerPopup = defaultMarker
   .bindPopup("I am the default marker's popup!")
   .openPopup();
-firstMarkerPopup.addTo(map);
+defaultMarkerPopup.addTo(map);
 
 // Logs GeoJSON object in the console:
-console.log(firstMarker.toGeoJSON());
+console.log(customMarker.toGeoJSON());
 
 // Tile layer controller
 const baseMaps = {
-  "Open Street Map": openStreetMap,
-  "NASAGIBS Earth at Night 2012": NASAGIBS_ViirsEarthAtNight2012,
-  "Google Street Map": googleStreet,
-  "Google Satellite Map": googleSatellite,
+  OpenStreetMap: openStreetMap,
   "Esri NatGeo World Map": esri_NatGeoWorldMap,
+  OpenTopoMap: openTopoMap,
+  "Stadia_AlidadeSmoothDark Map": stadia_AlidadeSmoothDark,
+  "Stadia_OSMBright Map": stadia_OSMBright,
 };
 
 const overlayMaps = {
-  "Custom Marker": firstMarker,
-  "Default Marker": secondMarker,
+  "Custom Marker": customMarker,
+  "Default Marker": defaultMarker,
 };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
