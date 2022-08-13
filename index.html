@@ -17,20 +17,27 @@
       integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
       crossorigin=""
     ></script>
+    <!-- Geocoder plug-in's CSS -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"
     />
+    <!--Geocoder plug-in's JS-->
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <!-- My CSS file -->
     <link rel="stylesheet" href="style.css" />
+    <!-- My JS file -->
     <script src="index.js" async></script>
     <title>Leaflet Tutorial</title>
   </head>
   <body>
     <section>
+      <!--Empty div with an id necessary to initialize the map-->
       <div id="leaflet-map">
+        <!--This div displays the coordinates obtained from the Leaflet Event called "mousemove" near the bottom of index.js-->
         <div id="coordinates" class="leaflet-control"></div>
       </div>
+      <!--Customized icon's attribution-->
       <div class="icon-attribution">
         <small
           ><a
@@ -41,6 +48,7 @@
         >
       </div>
     </section>
+    <!--The Leaflet Tutorial begins here-->
     <header class="text">
       <h1 id="leaflet-tutorial">Leaflet Tutorial</h1>
       <article>
@@ -155,8 +163,8 @@
         <ol>
           <li>
             Import Leaflet's <abbr title="Cascading Style Sheets">CSS</abbr> and
-            <abbr title="JavaScript">JS</abbr> to your index.html file by
-            copying and pasting the link and script tags from the
+            <abbr title="JavaScript">JS</abbr> to the head of your index.html
+            file by copying and pasting the link and script tags from the
             <a
               href="https://leafletjs.com/download.html"
               title="To Leaflet's official documentation"
@@ -165,8 +173,9 @@
             >.
           </li>
           <li>
-            Create an empty div and assign it an ID to target the map. (Use a
-            descriptive name, such as "map" or "leaflet-map.")
+            Create an empty div and assign it an ID to target the map (use a
+            descriptive name, such as <em>id</em> = "map" or <em>id</em> =
+            "leaflet-map").
           </li>
           <li>
             Inside a style tag in the head, assign width and height to the map
@@ -348,10 +357,9 @@
             <span class="code">const openStreetMap = L.tileLayer</span> etc.)
           </li>
           <li>
-            Call the addTo(map) method on this new variable instead of at the
-            end of the line above (for example,
-            <span class="code">openStreetMap.addTo(map);</span> for improved
-            legibility).
+            For improved legibility, call the addTo(map) method on this new
+            variable instead of at the end of the line above. For example:
+            <span class="code">openStreetMap.addTo(map);</span>
           </li>
           <li>
             Congratulations! You have initialized a map! Check the browser--by
@@ -373,169 +381,247 @@
         <h3 id="add-tile-layers">
           How to Add More Tile Layers and a Layers Control:
         </h3>
-        <ul>
-          <li><strong>To add new tile layers:</strong></li>
-          <ol>
-            <li>
-              Browse Leaflet's tile layer providers
-              <a
-                href="https://leaflet-extras.github.io/leaflet-providers/preview/"
-                target="_blank"
-                title="To Leaflet-Providers Preview"
-                >here</a
-              >.
-            </li>
-            <ul>
-              <li>
-                You will see a documentation window affixed to the top-center
-                and a scrollable sidebar to the right.
-              </li>
-            </ul>
-            <li>
-              Simply select the tile layer you would like to add to your map,
-              look in the documentation window for the section “Plain
-              JavaScript,” and copy the code you see there. It will resemble the
-              code used to add the OpenStreetMap tile layer in step 6 of "How to
-              Initialize the Map" in this tutorial.
-            </li>
-            <ul>
-              <li>
-                When you select an option from the sidebar, the map that forms
-                the web page's main background will change to provide a preview
-                of the tile layer selected.
-              </li>
-              <li>
-                If the preview is not visible, it is possible that that option
-                is restricted to a particular range of zoom levels. Try zooming
-                in or out using your mouse or trackpad to see if the preview
-                activates. Otherwise, you might need an API key to view or use
-                the tile layer.
-              </li>
-            </ul>
-            <li>
-              Once you paste that code from the documentation into the
-              <abbr title="JavaScript">JS</abbr> portion of your code, use the
-              dot operator and call the <em>addTo(map)</em> method on the
-              variable storing the tile layer, just as you did in step 6 of "How
-              to Initialize the Map" in this tutorial.
-            </li>
-            <ul>
-              <li>
-                <strong>Note:</strong> Although the tile layers on that page are
-                free, some of them require an API key. Take a closer look at the
-                tile layer's URL or the extra, parameterized options sometimes
-                provided after the URL for an indication that an API key is
-                needed.
-                <ul>
-                  <li>
-                    You can find out more information, such as which tile layer
-                    providers require registration, if you click
-                    <a
-                      href="https://github.com/leaflet-extras/leaflet-providers"
-                      title="To Leaflet-providers GitHub repository"
-                      target="_blank"
-                      >here</a
-                    >
-                    and scroll down or click the link at the top of the tile
-                    layer providers page that reads "Leaflet-providers" to get
-                    to the same web page.
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <li>
-              Feel free to repeat these steps to add multiple tile layers!
-            </li>
-            <br />
-          </ol>
+        <h4>To add new tile layers:</h4>
+        <ol>
           <li>
-            <strong
-              >To keep multiple tile layers organized and separable in the
-              display, let's add a layers control:</strong
+            Browse Leaflet's tile layer providers
+            <a
+              href="https://leaflet-extras.github.io/leaflet-providers/preview/"
+              target="_blank"
+              title="To Leaflet-Providers Preview"
+              >here</a
+            >.
+          </li>
+          <ul>
+            <li>
+              You will see a documentation window affixed to the top-center and
+              a scrollable sidebar to the right.
+            </li>
+          </ul>
+          <li>
+            Simply select the tile layer you would like to add to your map, look
+            in the documentation window for the section “Plain JavaScript,” and
+            copy the code you see there. It will resemble the code used to add
+            the OpenStreetMap tile layer in step 6 of "How to Initialize the
+            Map" in this tutorial.
+          </li>
+          <ul>
+            <li>
+              When you select an option from the sidebar, the map that forms the
+              web page's main background will change to provide a preview of the
+              tile layer selected.
+            </li>
+            <li>
+              If the preview is not visible, it is possible that that option is
+              restricted to a particular range of zoom levels. Try zooming in or
+              out using your mouse or trackpad to see if the preview activates.
+              Otherwise, you might need an API key to view or use the tile
+              layer.
+            </li>
+          </ul>
+          <li>
+            Once you paste that code from the documentation into the
+            <abbr title="JavaScript">JS</abbr> portion of your code, use the dot
+            operator and call the <em>addTo(map)</em> method on the variable
+            storing the tile layer, just as you did in step 8 of "How to
+            Initialize the Map" in this tutorial.
+          </li>
+          <ul>
+            <li>
+              <strong>Note:</strong> Although the tile layers on that page are
+              free, some of them require an API key. Take a closer look at the
+              tile layer's URL or the extra, parameterized options in curly
+              braces sometimes provided after the URL for an indication that an
+              API key is needed.
+              <ul>
+                <li>
+                  You can find out more information, such as which tile layer
+                  providers require registration, if you click
+                  <a
+                    href="https://github.com/leaflet-extras/leaflet-providers"
+                    title="To Leaflet-providers GitHub repository"
+                    target="_blank"
+                    >here</a
+                  >
+                  and scroll down or click the link at the top of the tile layer
+                  providers page that reads "Leaflet-providers" to get to the
+                  same web page.
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <li>
+            Feel free to repeat these steps to add multiple tile layers! (If you
+            check the display right now, it might look a little chaotic. Don't
+            worry, read on.)
+          </li>
+          <br />
+        </ol>
+        <h4>
+          To keep multiple tile layers organized and separable in the display,
+          let's add a layers control:
+        </h4>
+        <ol>
+          <li>
+            Take a quick look at the example map at the top of this web page.
+            The layers control is represented by the large icon in the top-right
+            corner. Hover the cursor over that icon. When you do so, the layers
+            control will open and you will be able to select a tile layer by
+            name to display.
+            <ul>
+              <li>
+                The options with circles which are listed above the line in the
+                layers control represent the base layers.
+              </li>
+              <li>
+                The options with squares which are listed below the line
+                represent overlays, such as markers.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Navigate to the Layers Control section of Leaflet’s documentation by
+            clicking
+            <a
+              href="https://leafletjs.com/examples/layers-control/"
+              title="To Leaflet's documentation on Layer Groups and Layers Control"
+              target="_blank"
+              >this link</a
+            >.
+          </li>
+          <li>
+            Since you have already initialized your map and added the base
+            layers, you can scroll past the first block of example code and go
+            directly to this example:<br /><span class="code"
+              >var baseMaps = {"OpenStreetMap": osm, "Mapbox Streets":
+              streets};<br />var overlayMaps = {"Cities": cities};</span
             >
           </li>
-          <ol>
+          <ul>
             <li>
-              Take a quick look at the example map at the top of this web page.
-              The layers control is represented by the large icon in the
-              top-right corner. Hover the cursor over that icon. When you do so,
-              the layers control will open and you will be able to select a tile
-              layer by name to display.
+              Explanation of the first code block above: The keyword
+              <em>var</em> declares the variable <em>baseMaps</em>. The variable
+              is assigned to an object. The object's properties are strings that
+              are named after the tile layers included as base layers
+              ("OpenStreetMap" and "Mapbox Streets"). The value of each property
+              is the variable under which that tile layer is stored (in the
+              example code, <em>osm</em> is the variable storing the tile layer
+              for "OpenStreetMap").
               <ul>
                 <li>
-                  The options with circles which are listed above the line in
-                  the layers control represent the base layers.
+                  However the property is named is how it will appear named in
+                  the tile layer controller on the map.
                 </li>
                 <li>
-                  The options with squares which are listed below the line
-                  represent overlays, such as markers.
+                  The order in which each property is declared in the object
+                  will determine the order in which each tile layer appears in
+                  the controller.
                 </li>
               </ul>
             </li>
             <li>
-              Navigate to the Layers Control section of Leaflet’s documentation
-              by clicking
-              <a
-                href="https://leafletjs.com/examples/layers-control/"
-                title="To Leaflet's documentation on Layer Groups and Layers Control"
-                target="_blank"
-                >this link</a
-              >.
+              Explanation of the second code block above: The keyword
+              <em>var</em> declares the variable <em>overlayMaps</em>. The
+              variable is assigned to an object. The property "Cities" is a
+              string; its value is the variable <em>cities</em>. The string
+              "Cities" will appear in the tile layer controller on the map. The
+              user will be able to check or uncheck a box next to "Cities" in
+              order to use <var>cities</var> as an overlay to the map or to
+              remove <var>cities</var> from the display.
+            </li>
+            <ul>
+              <li>
+                To visualize this feature better, imagine that instead of
+                "Cities" the property were "Marker" and that the variable stored
+                a particular marker icon on the map. Without affecting the base
+                layer map, the user could easily activate or deactivate that
+                marker by checking the box next to "Marker" in the tile layer
+                controller.
+              </li>
+            </ul>
+          </ul>
+          <li>
+            Once you understand the example code above, use the first code block
+            as the template to organize your layers. Declare a variable for your
+            base layers. Assign that variable to an object. In between curly
+            braces, assign properties that are strings and that correspond to
+            the name of each tile layer that you have already added to the map.
+            Follow each property's name with a colon. After the colon, assign a
+            value. The value should be the variable that stores each
+            corresponding tile layer (that is, the variable created in step 7
+            under "How to Initialize the Map" in this tutorial). Be sure to
+            include a comma after the value when listing multiple properties in
+            the object.
+          </li>
+          <li>
+            If you have an markers or other overlays that you would like to
+            organize in the layers control, use the second code block as the
+            template. Declare a variable for your base layers. Assign that
+            variable to an object. In between curly braces, assign properties
+            that are strings and that correspond to the name of each marker or
+            overlay that you have already added to the map. Follow each
+            property's name with a colon. After the colon, assign a value. The
+            value should be the variable that stores each corresponding marker
+            or overlay. Be sure to include a comma after the value when listing
+            multiple properties in the object.
+          </li>
+          <li>
+            Head back to the
+            <a
+              href="https://leafletjs.com/examples/layers-control/"
+              target="_blank"
+              title="To Leaflet's documentation on Layer Groups and Layers Control"
+              >Layers Control page</a
+            >
+            of Leaflet's documentation. Scroll down to this line of code:
+            <br />
+            <span class="code"
+              >var layerControl = L.control.layers(baseMaps,
+              overlayMaps).addTo(map);</span
+            >
+          </li>
+          <ul>
+            <li>
+              Explanation of the code above: The variable
+              <em>layerControl</em> is declared. To the right of the assignment
+              operator, the in-built <em>control</em> method tells Leaflet (that
+              is, <em>L</em>) to add the layers provided in parentheses to the
+              map. The first argument of <em>layers</em> is <em>baseMaps</em>,
+              and it takes the base layers' object. The second argument of
+              <em>layers</em> is <em>overlayMaps</em>, and it takes the
+              overlays' object.
+            </li>
+          </ul>
+          <li>
+            Underneath the base layers' object and the overlays' object that you
+            created in steps 4 and 5 above, paste the code that creates and adds
+            the layers control to the map. You can eliminate the declaration of
+            the variable and the assignment operator. Include everything to the
+            right of the equal sign. Modify the
+            <em>layers</em> method's parameters so that the names reflect the
+            names you assigned to your base layers' object and/or your overlays'
+            object.
+          </li>
+          <ul>
+            <li>
+              If you want to include only the base layers' object, you do not
+              have to include the second argument.
             </li>
             <li>
-              Since you have already initialized your map and added the base
-              layers, you can scroll past the first block of example code and go
-              directly to this example:<br /><span class="code"
-                >var baseMaps = {"OpenStreetMap": osm, "Mapbox Streets":
-                streets};<br />var overlayMaps = {"Cities": cities};</span
-              >
-              <ul>
-                <li>
-                  Explanation of the first code block above: The keyword
-                  <em>var</em> declares the variable <em>baseMaps</em>. The
-                  variable is assigned to an object. The object's properties are
-                  strings that are named after the tile layers included as base
-                  layers ("OpenStreetMap" and "Mapbox Streets"). The value of
-                  each property is the variable under which that tile layer is
-                  stored (in the example code, <em>osm</em> is the variable
-                  storing the tile layer for "OpenStreetMap").
-                  <ul>
-                    <li>
-                      However the property is named is how it will appear named
-                      in the tile layer controller on the map.
-                    </li>
-                    <li>
-                      The order in which each property is declared in the object
-                      will determine the order in which each tile layer appears
-                      in the controller.
-                    </li>
-                  </ul>
-                </li>
-
-                <li>
-                  Explanation of the second code block above: The keyword
-                  <em>var</em> declares the variable <em>overlayMaps</em>. The
-                  variable is assigned to an object. The property "Cities" is a
-                  string; its value is the variable <em>cities</em>. The string
-                  "Cities" will appear in the tile layer controller on the map.
-                  The user will be able to check or uncheck a box next to
-                  "Cities" in order to use <var>cities</var> as an overlay to
-                  the map or to remove <var>cities</var> from the display.
-                </li>
-                <ul>
-                  <li>
-                    To visualize this feature better, imagine that instead of
-                    "Cities" the property were "Marker" and that the variable
-                    stored a particular marker icon on the map. Without
-                    affecting the base layer map, the user could easily activate
-                    or deactivate that marker by checking the box next to
-                    "Marker" in the tile layer controller.
-                  </li>
-                </ul>
-              </ul>
+              If you want to include only the overlays' object, pass
+              <em>null</em> as the first argument and include the overlays'
+              object as the second argument.
             </li>
-          </ol>
-        </ul>
+          </ul>
+          <li>
+            Great! Check the browser to see your layers control! Is the icon
+            appearing in the top-right corner? When you hover the mouse over the
+            icon, does the layers control open and display the list of base
+            layers and overlays without errors? When you select each option in
+            turn, does the display change? If something went wrong, review the
+            steps and information above.
+          </li>
+        </ol>
       </article>
       <article>
         <h3 id="resources-leaflet">Resources | Leaflet:</h3>
@@ -648,9 +734,9 @@
           </li>
         </ul>
       </article>
-      <h4>
-        <a href="#leaflet-tutorial">Back to the top of this page</a>
-      </h4>
+      <button class="back-to-top" type="button">
+        <a href="#leaflet-tutorial">BACK TO THE TOP OF THIS PAGE</a>
+      </button>
     </main>
     <hr />
     <footer class="text">
@@ -659,7 +745,7 @@
           href="https://github.com/AddyLopez/leaflet-app"
           title="To GitHub repository for this project"
           target="_blank"
-          >Open-source code</a
+          >Annotated open-source code</a
         >
         and text by
         <a
