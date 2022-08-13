@@ -1,7 +1,7 @@
-// Initialization of OpenStreetMap
+// Initialization of map with a set latitude, longitude, and zoom level:
 const map = L.map("leaflet-map").setView([50.4501, 30.5234], 4);
 
-// OpenStreetMap tile layer
+// OpenStreetMap tile layer:
 const openStreetMap = L.tileLayer(
   "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   {
@@ -10,10 +10,10 @@ const openStreetMap = L.tileLayer(
   }
 );
 
+// Adds the OpenStreetMap tile layer to the map:
 openStreetMap.addTo(map);
 
-// OpenTopoMap tile layer
-
+// OpenTopoMap tile layer:
 const openTopoMap = L.tileLayer(
   "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
   {
@@ -22,10 +22,11 @@ const openTopoMap = L.tileLayer(
       'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
   }
 );
+
+// Adds the OpenTopoMap tile layer to the map:
 openTopoMap.addTo(map);
 
-// Stalia_AlidadeSmoothDark tile layer
-
+// Stadia_AlidadeSmoothDark tile layer:
 const stadia_AlidadeSmoothDark = L.tileLayer(
   "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
   {
@@ -35,10 +36,10 @@ const stadia_AlidadeSmoothDark = L.tileLayer(
   }
 );
 
+// Adds the Stadia_AlidadeSmoothDark tile layer to the map:
 stadia_AlidadeSmoothDark.addTo(map);
 
-// Stadia_OSMBright tile layer
-
+// Stadia_OSMBright tile layer:
 const stadia_OSMBright = L.tileLayer(
   "https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png",
   {
@@ -48,13 +49,8 @@ const stadia_OSMBright = L.tileLayer(
   }
 );
 
+// Adds the Stadia_OSMBright tile layer to the map:
 stadia_OSMBright.addTo(map);
-
-// Custom Icon for Marker:
-const customIcon = L.icon({
-  iconUrl: "./images/thermometer-icon-marker.png",
-  iconSize: [45, 45],
-});
 
 // ESRI NatGeo World Map tile layer:
 const esri_NatGeoWorldMap = L.tileLayer(
@@ -66,58 +62,75 @@ const esri_NatGeoWorldMap = L.tileLayer(
   }
 );
 
+// Adds the NatGeo World Map tile layer to the map:
 esri_NatGeoWorldMap.addTo(map);
 
-// Leaflet Marker:
+// Assigns a customized icon with the local file path to the image and a size:
+const customIcon = L.icon({
+  iconUrl: "./images/thermometer-icon-marker.png",
+  iconSize: [45, 45],
+});
+
+// Assigns the customized icon above to a marker at the coordinates specified:
 const customMarker = L.marker([50.4501, 30.5234], {
   icon: customIcon,
 });
+
+// Generates a pop-up message that is bound to the customized marker and is instructed to open. The pop-up message also displays the latitude and longitude of the customized marker:
 const customMarkerPopup = customMarker
-  .bindPopup("I am a popup on the custom icon! " + customMarker.getLatLng())
+  .bindPopup(
+    "I am a popup on the customized marker! " + customMarker.getLatLng()
+  )
   .openPopup();
+
+// Adds the customized marker with its pop-up to the map:
 customMarkerPopup.addTo(map);
 
-// second marker:
+// Assigns a default marker at the specified coordinates:
 const defaultMarker = L.marker([50.4501, 33.5234]);
+
+// Generates a pop-up message that is bound to the default marker and is instructed to open.
 const defaultMarkerPopup = defaultMarker
   .bindPopup("I am the default marker's popup!")
   .openPopup();
+
+// Adds the defaultMarker with its pop-up to the map:
 defaultMarkerPopup.addTo(map);
 
-// Logs GeoJSON object in the console:
-console.log(customMarker.toGeoJSON());
-
-// Tile layer controller
+// Assigns all the tile layers to baseMaps as an object:
 const baseMaps = {
   OpenStreetMap: openStreetMap,
-  "Esri NatGeo World Map": esri_NatGeoWorldMap,
   OpenTopoMap: openTopoMap,
+  "Esri NatGeo World Map": esri_NatGeoWorldMap,
   "Stadia_AlidadeSmoothDark Map": stadia_AlidadeSmoothDark,
   "Stadia_OSMBright Map": stadia_OSMBright,
 };
 
-const overlayMaps = {
-  "Custom Marker": customMarker,
+// Assigns all the markers to overlayMaps as an object:
+const overlayMarkers = {
+  "Customized Marker": customMarker,
   "Default Marker": defaultMarker,
 };
 
-L.control.layers(baseMaps, overlayMaps).addTo(map);
+// Adds the layers control for the tile layers and the markers to the map:
+L.control.layers(baseMaps, overlayMarkers).addTo(map);
 
-// Leaflet Events:
-// mouseover:
+// Uses the Leaflet Event called "mouseover" to log the presence of the cursor on the map:
 map.on("mouseover", function () {
   console.log("The mouse is on the map.");
 });
-// mousemove (Displays the coordinates of the mouse wherever it is over the map.)
 
+// Uses the Leaflet Event called "mousemove" to display the coordinates of the cursor wherever it is hovered over the map:
 map.on("mousemove", function (event) {
   document.getElementById("coordinates").innerHTML =
-    "<strong>lat:</strong> " +
+    "<strong>latitude:</strong> " +
     event.latlng.lat +
-    " <strong>lng:</strong> " +
+    " <strong>longitude:</strong> " +
     event.latlng.lng;
 });
 
-// Leaflet Geocoder plug-in that adds a search engine to the map
+// Logs the GeoJSON object in the console:
+console.log(customMarker.toGeoJSON());
 
+// A Leaflet Geocoder plug-in that adds a search engine to the map:
 L.Control.geocoder().addTo(map);

@@ -26,16 +26,14 @@
   <body>
     <section>
       <div id="leaflet-map">
-          <div id="coordinates" class="leaflet-control">
-
-          </div>
+          <div id="coordinates" class="leaflet-control"></div>
       </div>
-    </main>
+      <div class="icon-attribution"><small><a href="https://www.flaticon.com/free-icons/temperature" title="temperature icons">Temperature icons created by Freepik - Flaticon</a></small></div>
     </section>
     <header class="text">
       <h1 id="leaflet-tutorial">Leaflet Tutorial</h1>
       <article>
-          <h2>Background Information:</h3>
+          <h2>Background Information:</h2>
           <section>
               <h3>What Is Leaflet?</h3>
               <p>According to its home page, <a href="https://leafletjs.com/" title="To Leaflet's home page" target="_blank">Leaflet</a> was created "11 years ago by Volodymyr Agafonkin, a Ukrainian citizen" and is "the leading open-source JavaScript library for mobile-friendly interactive maps."
@@ -43,14 +41,22 @@
             </section>
             <section>
                 <h3>The Purpose of This Tutorial:</h3>
-                <p>This web page provides a short step-by-step tutorial for developers to get started with Leaflet in order to build interactive map features that can be integrated with other data. Learn how to initialize a map, create a marker with a pop-up, add a layers control, and include a geocoder to search for different cities. The process is quite simple. Run through these steps just once and a new world will open up to explore! Check out the resources after the tutorial to continue on this journey. Although the focus here is on Leaflet in vanilla JavaScript, there are additional resources at the bottom for developers who are interested in learning React Leaflet. Familiarity with the simple steps outlined below will make it a lot easier to delve into the documentation to experiment with building more complex map features.</p>
+                <p>This web page provides a short step-by-step tutorial for developers to get started with Leaflet in order to build interactive map features that can be integrated with other data. Learn how to initialize a map, create a marker with a pop-up, add a layers control, and include a geocoder to search for different cities.</p>
+                <p>
+                    Each instruction is assigned a number for quick identification, while each bullet point provides explanatory details as a supplement to clear up any possible confusion. It looks like a lot of text, but the process is actually quite simple. Run through these steps just once and a new world will open up for you to explore!
+                </p>
+                 <p>
+                     Check out the resources after the tutorial to continue on this journey. Although the focus here is on Leaflet in vanilla JavaScript, there are additional resources at the bottom for developers who are interested in learning React Leaflet. Familiarity with the simple steps outlined below will make it a lot easier to delve into the documentation to experiment with building more complex map features.
+                 </p>
             </section>
             <section>
                 <h3>Personal Motivations:</h3>
-                <p>Once I learned how to use Leaflet as an experimental design feature for my React weather application, I wanted to spread that knowledge to my development community at <a href=https://www.shecodes.io/students" target="_blank" title="To SheCodes Alumnae page">SheCodes</a>. I also felt deeply moved by the inspiring examples on the pop-up on Leaflet's home page, which attest to the powerful storytelling that can be done with code and maps. I'm sharing this tutorial as a small tribute to the Ukrainian people by supporting Ukranian web development. I hope that you will feel inspired to take this knowledge further and create some cool apps! Happy coding!</p>
+                <p>Once I learned how to use Leaflet as an experimental design feature for my React weather application, I wanted to spread that knowledge to my development community at <a href="https://www.shecodes.io/students" target="_blank" title="To SheCodes Alumnae page">SheCodes</a>. I also felt deeply moved by the inspiring examples on the pop-up on Leaflet's home page, which attest to the powerful storytelling that can be done with code and maps. I'm sharing this tutorial as a small tribute to the Ukrainian people by supporting Ukranian web development. I hope that you will feel inspired to take this knowledge further and create some cool apps! Happy coding!
+                </p>
             </section>
         </article>
         <section>
+            <h2>Menu:</h2>
             <h4>Jump to:</h4>
             <ul>
                 <li><a href="#initialize-map" title="Jump directly to How to Initialize the Map | Leaflet Tutorial">How to Initialize the Map</a></li>
@@ -96,8 +102,8 @@
                         <ul>
                             <li>
                                 Consider using a separate <abbr title="JavaScript">JS</abbr> file for more involved projects. (Simply add an <em>src</em> attribute to the script tag and include the name of the file where you will write your <abbr title="JavaScript">JS</abbr>, such as index.js, there.)
-                                <li>(Alternatively, if using a separate <abbr title="JavaScript">JS</abbr> file, for the script file to load more quickly, you could include the script tag with the <em>src</em> attribute in the head and include the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-async" title="To MDN async attribute documentation" target="_blank"><em>async</em> attribute</a>.)</li>
                             </li>
+                            <li>(Alternatively, if using a separate <abbr title="JavaScript">JS</abbr> file, for the script file to load more quickly, you could include the script tag with the <em>src</em> attribute in the head and include the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-async" title="To MDN async attribute documentation" target="_blank"><em>async</em> attribute</a>.)</li>
                         </ul>
                         <li>Inside the script tag (or your <abbr title="JavaScript">JS</abbr> file), declare a map variable and use the syntax from Leaflet's <a href="https://leafletjs.com/index.html" title="To Leaflet's overview" target="_blank">overview</a>. Explanation of the syntax below:</li>
                         <ul>
@@ -136,16 +142,16 @@
                                     <li>Assign this code to a variable (for example, <span class="code">const openStreetMap = L.tileLayer</span> etc.)</li>
                                     <li>Call the addTo(map) method on this new variable instead of at the end of the line above (for example, <span class="code">openStreetMap.addTo(map);</span> for improved legibility).</li>
                                 </ul>
-                                <li>Congratulations! You have initialized a map! By now, it should be visible in the browser.</li>
-                        </article>
-                        <article>
-                            <h3 id="add-marker">How to Add a Marker:</h3>
-                            <ol>
-                                <li>Marker step 1.</li>
-                                <li>Marker step 2.</li>
-                                <li>Marker step 3.</li>
-                            </ol>
-                        </article>
+                                <li>Congratulations! You have initialized a map! Check the browser--by now, the OpenStreetMap tile layer should be visible as a map. If the image is broken, review steps 1 through 6 and use the information in the bullet points after each step to debug your application.</li>
+        </article>
+        <article>
+            <h3 id="add-marker">How to Add a Marker:</h3>
+                <ol>
+                    <li>Marker step 1.</li>
+                    <li>Marker step 2.</li>
+                    <li>Marker step 3.</li>
+                </ol>
+        </article>
                         <article>
                             <h3 id="add-tile-layers">How to Add More Tile Layers and a Layers Control:</h3>
                             <ul>
@@ -189,12 +195,12 @@
                                         <li>
                                             Navigate to the Layers Control section of Leaflet’s documentation by clicking <a href="https://leafletjs.com/examples/layers-control/" title="To Leaflet's documentation on Layer Groups and Layers Control" target="_blank">this link</a>. 
                                         </li>
-                                        <li>Since you have already initialized your map and added the base layers, you can scroll past the first block of example code and go directly to this example:<br /><span class="code">var baseMaps = {"OpenStreetMap": osm, "Mapbox Streets": streets};<br />var overlayMaps = {"Cities": cities};
+                                        <li>Since you have already initialized your map and added the base layers, you can scroll past the first block of example code and go directly to this example:<br /><span class="code">var baseMaps = {"OpenStreetMap": osm, "Mapbox Streets": streets};<br />var overlayMaps = {"Cities": cities};</span>
                                             <ul>
                                                 <li>Explanation of the first code block above: The keyword <em>var</em> declares the variable <em>baseMaps</em>. The variable is assigned to an object. The object's properties are strings that are named after the tile layers included as base layers ("OpenStreetMap" and "Mapbox Streets"). The value of each property is the variable under which that tile layer is stored (in the example code, <em>osm</em> is the variable storing the tile layer for "OpenStreetMap").
                                                     <ul>
                                                         <li>
-                                                            However the property is named is how it will appear in the tile layer controller on the map.
+                                                            However the property is named is how it will appear named in the tile layer controller on the map.
                                                         </li>
                                                         <li>
                                                             The order in which each property is declared in the object will determine the order in which each tile layer appears in the controller.</li>
@@ -209,7 +215,7 @@
                                                         </li>
                                                     </ul>
                                             </ul>
-                                        </span>
+                                        
                                         </li>
                                     </ol>
                             </ul>
@@ -218,14 +224,15 @@
                             <h3 id="resources-leaflet">Resources | Leaflet:</h3>
                             <ul>
                                 <li>
-                                    Leaflet's documentation: <a href="https://leafletjs.com/" target="_blank" title="To Leaflet's official documentation">https://leafletjs.com/</a>
+                                    Leaflet documentation: <a href="https://leafletjs.com/" target="_blank" title="To Leaflet's official documentation">https://leafletjs.com/</a>
                                 </li>
                                 <li>
-                                    Leaflet providers preview: <a href="https://leaflet-extras.github.io/leaflet-providers/preview/">https://leaflet-extras.github.io/leaflet-providers/preview/</a>
+                                    Leaflet providers preview: <a href="https://leaflet-extras.github.io/leaflet-providers/preview/" target="_blank" title="To Leaflet-providers-preview">https://leaflet-extras.github.io/leaflet-providers/preview/</a>
                                 </li>
                                 <li>
                                     OpenStreetMap's about page: <a href="https://www.openstreetmap.org/about" target="_blank" title="To OpenStreetMap's about page">https://www.openstreetmap.org/about</a>
                                 </li>
+                                <li>OpenStreetMap's page concerning copyright and attribution: <a href="https://www.openstreetmap.org/copyright" target="_blank" title="To OpenStreetMap's page Copyright and License ">https://www.openstreetmap.org/copyright</a></li>
                                 <li>"Leaflet crash course - All you need to know about leaflet" by Tekson/GeoDev (a comprehensive, hour-long video demo on YouTube assuming no prior knowledge of Leaflet): <a href="https://www.youtube.com/watch?v=ls_Eue1xUtY" target="_blank" title="To Tekson's Leaflet Crash Course on YouTube">https://www.youtube.com/watch?v=ls_Eue1xUtY</a></li>
                                     <ul>
                                         <li>
@@ -249,12 +256,13 @@
                                 </li>
                             </ul>
                         </article>
-                        <a href="#leaflet-tutorial">Back to the top of this page</a>
+                        <h4>
+                            <a href="#leaflet-tutorial">Back to the top of this page</a>
+                        </h4>
                         
                         </main>
                         <hr />
                         <footer class="text">
-                            <small><a href="https://www.flaticon.com/free-icons/temperature" title="temperature icons">Temperature icons created by Freepik - Flaticon</a></small>
                             <h5><a href="https://github.com/AddyLopez/leaflet-app" title="To GitHub repository for this project" target="_blank">Open-source code</a> and text by <a href="https://ubiquitous-froyo-69b6d7.netlify.app/" title="To Addy's personal website" target="_blank">Addy López</a></h5>
                         </footer>
                     </body>
