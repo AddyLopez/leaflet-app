@@ -22,7 +22,7 @@ a {
   text-decoration: none;
 }
 a:visited {
-  color: hsl(174deg 73% 19%));
+  color: hsl(174deg 73% 19%);
 }
 a:hover {
   text-decoration: underline;
