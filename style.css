@@ -131,8 +131,9 @@ button.back-to-top a {
   margin-left: 45px;
   padding: 0 3px;
 }
-.leaflet-container a {
-  color: #0078a8;
+.leaflet-container a,
+.icon-attribution a {
+  color: hsl(240, 100%, 50%);
 }
 
 .leaflet-container a.leaflet-popup-close-button {
