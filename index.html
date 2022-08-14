@@ -128,8 +128,8 @@
           <li>
             <a
               href="#add-marker"
-              title="Jump directly toHow to Add a Marker | Leaflet Tutorial"
-              >How to Add a Marker</a
+              title="Jump directly to How to Add a Marker with a Pop-Up | Leaflet Tutorial"
+              >How to Add a Marker with a Pop-Up</a
             >
           </li>
           <li>
@@ -140,7 +140,9 @@
             >
           </li>
           <li>
-            <a href="#geocoder"
+            <a
+              href="#geocoder"
+              title="Jump directly to How to Include a Geocoder Plug-in to Search for Cities on the Map"
               >How to Include a Geocoder Plug-in to Search for Cities on the
               Map</a
             >
@@ -376,11 +378,130 @@
         </ol>
       </article>
       <article>
-        <h3 id="add-marker">How to Add a Marker:</h3>
+        <h3 id="add-marker">How to Add a Marker with a Pop-Up:</h3>
+        <h4>For a default marker:</h4>
         <ol>
-          <li>Marker step 1.</li>
-          <li>Marker step 2.</li>
-          <li>Marker step 3.</li>
+          <li>
+            Explore the map at the top of this web page. In the center, there is
+            a blue icon that looks like an upside-down teardrop with a white
+            eyelet. That is the default marker. Click on the marker to see the
+            pop-up message!
+          </li>
+          <li>
+            Go to the
+            <a
+              href="https://leafletjs.com/reference.html#marker"
+              target="_blank"
+              title="To the Marker section of Leaflet's documentation"
+              >Marker section</a
+            >
+            of Leaflet's documentation.
+          </li>
+          <li>
+            Copy this line of code from the "Usage example":
+            <br />
+            <span class="code">L.marker([50.5, 30.5]).addTo(map);</span>
+          </li>
+          <ul>
+            <li>
+              Explanation of the code above: This line instructs Leaflet (that
+              is, <em>L</em>) to generate a marker at the coordinates specified.
+              The in-built <em>marker</em> method takes as its first argument a
+              latitude and a longitude separated by a comma and wrapped in
+              square brackets. Notice that the latitude and longitude are NOT
+              separate arguments. The <em>addTo(map)</em> method adds the marker
+              to the map at the location designated by the given coordinates.
+            </li>
+          </ul>
+          <li>
+            Paste that line into your <abbr title="JavaScript">JS</abbr> code
+            anywhere beneath where you initialized the map with its first tile
+            layer.
+          </li>
+          <li>
+            Modify the latitude and longitude in square brackets to reflect the
+            coordinates of the location where you wish to place the marker.
+          </li>
+          <li>
+            To keep track of any icon that you create in this way, declare a
+            variable and assign it to the line of code that generates the
+            marker. Then you can remove the <em>addTo(map)</em> method from the
+            end and instead call that method on the variable. For example:
+            <br />
+            <span class="code"
+              >const defaultMarker = L.marker([50.4501, 33.5234]);</span
+            >
+            <br />
+            <span class="code">defaultMarker.addTo(map);</span>
+          </li>
+          <ul>
+            <li>
+              Assigning the marker to a variable will make the logic of your
+              code more intelligible when you want to add a pop-up.
+            </li>
+          </ul>
+          <li>
+            To add a pop-up to this marker, first visit the
+            <a
+              href="https://leafletjs.com/reference.html#popup"
+              target="_blank"
+              title="To the Popup section of Leaflet's documentation"
+              >Popup section</a
+            >
+            of Leaflet's documentation.
+          </li>
+          <li>
+            Under the "Usage example," copy this line of code: <br />
+            <span class="code"
+              >marker.bindPopup(popupContent).openPopup();</span
+            >
+          </li>
+          <ul>
+            <li>
+              Explanation of the code above: The <em>bindPopup</em> method is
+              called on the marker. A placeholder for the pop-up content is
+              given in parentheses as its argument. Then, the
+              <em>openPopup</em> method is called on the pop-up that is bound to
+              the marker.
+            </li>
+            <ul>
+              <li>
+                As it says in the documentation, "Use
+                <a
+                  href="https://leafletjs.com/reference.html#map-openpopup"
+                  target="_blank"
+                  title="To the Map.openPopup method on Leaflet's documentation"
+                  >Map.openPopup</a
+                >
+                to open popups while making sure that only one popup is open at
+                one time (recommended for usability), or use
+                <a
+                  href="https://leafletjs.com/reference.html#map-addlayer"
+                  target="_blank"
+                  title="To the Map.addLayer method on Leaflet's documentation"
+                  >Map.addLayer</a
+                >
+                to open as many as you want".
+              </li>
+            </ul>
+          </ul>
+          <li>
+            Declare a variable for the pop-up and paste the code that you copied
+            to the right of assignment operator. Substitute your marker's
+            variable for "marker". Substitute your message for the placeholder
+            <em>popupContent</em>, and wrap your message in quotation marks.
+          </li>
+        </ol>
+
+        <h4>For a customized marker:</h4>
+        <ol>
+          <li>
+            Explore the map at the top of this web page. Slightly off-center,
+            there is a red icon of a thermometer. That is a marker with a
+            customized icon. Click on the thermometer icon to see the pop-up
+            message!
+          </li>
+          <li>Customized marker 2</li>
         </ol>
       </article>
       <article>

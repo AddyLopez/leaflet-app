@@ -79,7 +79,7 @@ const customMarker = L.marker([50.4501, 30.5234], {
 // Generates a pop-up message that is bound to the customized marker and is instructed to open. The pop-up message also displays the latitude and longitude of the customized marker:
 const customMarkerPopup = customMarker
   .bindPopup(
-    "I am a popup on the customized marker! " + customMarker.getLatLng()
+    "I am a pop-up on the customized marker! " + customMarker.getLatLng()
   )
   .openPopup();
 
@@ -91,7 +91,7 @@ const defaultMarker = L.marker([50.4501, 33.5234]);
 
 // Generates a pop-up message that is bound to the default marker and is instructed to open.
 const defaultMarkerPopup = defaultMarker
-  .bindPopup("I am the default marker's popup!")
+  .bindPopup("I am a pop-up on the default marker!")
   .openPopup();
 
 // Adds the defaultMarker with its pop-up to the map:
