@@ -379,7 +379,7 @@
       </article>
       <article>
         <h3 id="add-marker">How to Add a Marker with a Pop-Up:</h3>
-        <h4>For a default marker:</h4>
+        <h4>To create a default marker:</h4>
         <ol>
           <li>
             Explore the map at the top of this web page. In the center, there is
@@ -440,8 +440,11 @@
               code more intelligible when you want to add a pop-up.
             </li>
           </ul>
+        </ol>
+        <h4>To add a pop-up on this default marker:</h4>
+        <ol>
           <li>
-            To add a pop-up to this marker, first visit the
+            Visit the
             <a
               href="https://leafletjs.com/reference.html#popup"
               target="_blank"
@@ -459,10 +462,12 @@
           <ul>
             <li>
               Explanation of the code above: The <em>bindPopup</em> method is
-              called on the marker. A placeholder for the pop-up content is
-              given in parentheses as its argument. Then, the
+              called on the marker in order to bind the pop-up's message to the
+              marker. A placeholder for the pop-up content is given in
+              parentheses as the <em>bindPopup</em> method's argument. Then, the
               <em>openPopup</em> method is called on the pop-up that is bound to
-              the marker.
+              the marker; its purpose is to enable the opening of the pop-up
+              message on the marker.
             </li>
             <ul>
               <li>
@@ -488,11 +493,32 @@
           <li>
             Declare a variable for the pop-up and paste the code that you copied
             to the right of assignment operator. Substitute your marker's
-            variable for "marker". Substitute your message for the placeholder
-            <em>popupContent</em>, and wrap your message in quotation marks.
+            variable (from step 6 of "To create a default marker" in this
+            tutorial) for
+            <em>marker</em>. Substitute your message for the placeholder
+            <em>popupContent</em>. Wrap your message in quotation marks within
+            the parentheses to make it a string. For example:
+            <br />
+            <span class="code"
+              >const defaultMarkerPopup = defaultMarker.bindPopup("I am the
+              default marker's popup!").openPopup();</span
+            >
+          </li>
+          <li>
+            Finally, with your code formatted in this manner, you can add the
+            pop-up to the map on the next line of your coding editor. Call the
+            <em>addTo(map)</em> method on the variable you declared for storing
+            the pop-up. For example:
+            <br />
+            <span class="code">defaultMarkerPopup.addTo(map);</span>
+          </li>
+          <li>
+            Now there should be a default marker on the map at the coordinates
+            you specified with your pop-up message when you click on the marker!
+            Check your map and return to these steps if you need to troubleshoot
+            any problems.
           </li>
         </ol>
-
         <h4>For a customized marker:</h4>
         <ol>
           <li>

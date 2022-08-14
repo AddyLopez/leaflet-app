@@ -83,7 +83,7 @@ const customMarkerPopup = customMarker
   )
   .openPopup();
 
-// Adds the customized marker with its pop-up to the map:
+// Adds the customized marker's pop-up to the map:
 customMarkerPopup.addTo(map);
 
 // Assigns a default marker at the specified coordinates:
@@ -94,7 +94,7 @@ const defaultMarkerPopup = defaultMarker
   .bindPopup("I am a pop-up on the default marker!")
   .openPopup();
 
-// Adds the defaultMarker with its pop-up to the map:
+// Adds the defaultMarker's pop-up to the map:
 defaultMarkerPopup.addTo(map);
 
 // Assigns all the tile layers to baseMaps as an object:

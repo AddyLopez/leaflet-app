@@ -38,6 +38,7 @@ div.icon-attribution {
 }
 .code {
   background-color: lavender;
+  font-family: monospace;
 }
 .text {
   margin: calc(4% + 2px) auto;
