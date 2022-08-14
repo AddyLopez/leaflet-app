@@ -49,1096 +49,1184 @@
       </div>
     </section>
     <!--The Leaflet Tutorial begins here-->
-    <header class="text">
-      <h1 id="leaflet-tutorial">Leaflet Tutorial</h1>
-      <article>
-        <h2>Background Information:</h2>
-        <section>
-          <h3>What Is Leaflet?</h3>
-          <p>
-            According to its home page,
-            <a
-              href="https://leafletjs.com/"
-              title="To Leaflet's home page"
-              target="_blank"
-              >Leaflet</a
-            >
-            was created "11 years ago by Volodymyr Agafonkin, a Ukrainian
-            citizen" and is "the leading open-source JavaScript library for
-            mobile-friendly interactive maps."
-          </p>
-        </section>
-        <section>
-          <h3>The Purpose of This Tutorial:</h3>
-          <p>
-            This web page provides a short step-by-step tutorial for developers
-            to get started with Leaflet in order to build interactive map
-            features that can be integrated with other data. Learn how to
-            initialize a map, create a marker with a pop-up, add a layers
-            control, and include a geocoder to search for different cities.
-          </p>
-          <p>
-            Each instruction is assigned a number for quick identification,
-            while each bullet point provides explanatory details as a supplement
-            to clear up any possible confusion. It looks like a lot of text, but
-            the process is actually quite simple. Run through these steps just
-            once and a new world will open up for you to explore!
-          </p>
-          <p>
-            Check out the resources after the tutorial to continue on this
-            journey. Although the focus here is on Leaflet in vanilla
-            JavaScript, there are additional resources at the bottom for
-            developers who are interested in learning React Leaflet. Familiarity
-            with the simple steps outlined below will make it a lot easier to
-            delve into the documentation to experiment with building more
-            complex map features.
-          </p>
-        </section>
-        <section>
-          <h3>Personal Motivations:</h3>
-          <p>
-            Once I learned how to use Leaflet as an experimental design feature
-            for my React weather application, I wanted to spread that knowledge
-            to my development community at
-            <a
-              href="https://www.shecodes.io/students"
-              target="_blank"
-              title="To SheCodes Alumnae page"
-              >SheCodes</a
-            >. I also felt deeply moved by the inspiring examples on the pop-up
-            on Leaflet's home page, which attest to the powerful storytelling
-            that can be done with code and maps. I'm sharing this tutorial as a
-            small tribute to the Ukrainian people by supporting Ukranian web
-            development. I hope that you will feel inspired to take this
-            knowledge further and create some cool apps! Happy coding!
-          </p>
-        </section>
-      </article>
-      <section>
-        <h2>Menu:</h2>
-        <h4>Jump to:</h4>
-        <ul>
-          <li>
-            <a
-              href="#initialize-map"
-              title="Jump directly to How to Initialize the Map | Leaflet Tutorial"
-              >How to Initialize the Map</a
-            >
-          </li>
-          <li>
-            <a
-              href="#add-marker"
-              title="Jump directly to How to Add a Marker with a Pop-Up | Leaflet Tutorial"
-              >How to Add a Marker with a Pop-Up</a
-            >
-          </li>
-          <li>
-            <a
-              href="#add-tile-layers"
-              title="Jump directly to How to Add More Tile Layers and a Layers Control | Leaflet Tutorial"
-              >How to Add More Tile Layers and a Layers Control</a
-            >
-          </li>
-          <li>
-            <a
-              href="#geocoder"
-              title="Jump directly to How to Include a Geocoder Plug-in to Search for Cities on the Map"
-              >How to Include a Geocoder Plug-in to Search for Cities on the
-              Map</a
-            >
-          </li>
-          <li>
-            <a
-              href="#resources-react"
-              title="Jump directly to Resources | Leaflet"
-              >Resources | Leaflet</a
-            >
-          </li>
-          <li>
-            <a
-              href="#resources-react-leaflet"
-              title="Jump directly to Resources | React Leaflet"
-              >Resources | React Leaflet</a
-            >
-          </li>
-        </ul>
-      </section>
-    </header>
-    <main class="text">
-      <h2>Let's get started!</h2>
-      <article>
-        <h3 id="initialize-map">How to Initialize the Map:</h3>
-        <ol>
-          <li>
-            Import Leaflet's <abbr title="Cascading Style Sheets">CSS</abbr> and
-            <abbr title="JavaScript">JS</abbr> to the head of your index.html
-            file by copying and pasting the link and script tags from the
-            <a
-              href="https://leafletjs.com/download.html"
-              title="To Leaflet's official documentation"
-              target="_blank"
-              >documentation</a
-            >.
-          </li>
-          <li>
-            Create an empty div and assign it an ID to target the map (use a
-            descriptive name, such as <em>id</em> = "map" or <em>id</em> =
-            "leaflet-map").
-          </li>
-          <li>
-            Inside a style tag in the head, assign width and height to the map
-            using the ID's selector. It is a requirement to assign a height to
-            the map for Leaflet to work. (<strong>Tip:</strong> a rule set of
-            {width: 100%; height: 100<abbr title="viewport height">vh</abbr>;}
-            will render a full-screen map).
-          </li>
-          <ul>
-            <li>
-              To select an ID in
-              <abbr title="Cascading Style Sheets">CSS</abbr>, prepend the name
-              of the ID with a pound sign (for an ID of "map", write #map).
-            </li>
-            <li>
-              For more involved styling, consider linking to a separate
-              stylesheet in the head tag of your
-              <abbr title="Hypertext Markup Language">HTML</abbr> file.
-            </li>
-            <li>
-              For more information on how to style the map for mobile devices,
-              see
-              <a
-                href="https://leafletjs.com/examples/mobile/"
-                title="To Leaflet on Mobile Tutorial"
-                target="_blank"
-                >Leaflet on Mobile</a
-              >.
-            </li>
-          </ul>
-          <li>Add a script tag above the body's closing tag.</li>
-          <ul>
-            <li>
-              Consider using a separate <abbr title="JavaScript">JS</abbr> file
-              for more involved projects. (Simply add an <em>src</em> attribute
-              to the script tag and include the name of the file where you will
-              write your <abbr title="JavaScript">JS</abbr>, such as index.js,
-              there.)
-            </li>
-            <li>
-              (Alternatively, if using a separate
-              <abbr title="JavaScript">JS</abbr> file, for the script file to
-              load more quickly, you could include the script tag with the
-              <em>src</em> attribute in the head and include the
-              <a
-                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-async"
-                title="To MDN async attribute documentation"
-                target="_blank"
-                ><em>async</em> attribute</a
-              >.)
-            </li>
-          </ul>
-          <li>
-            Inside the script tag (or your
-            <abbr title="JavaScript">JS</abbr> file), declare a map variable and
-            use the syntax from Leaflet's
-            <a
-              href="https://leafletjs.com/index.html"
-              title="To Leaflet's overview"
-              target="_blank"
-              >overview</a
-            >. Explanation of the syntax below:
-          </li>
-          <ul>
-            <li>
-              Here is the sample given: <br />
-              <span class="code"
-                >var map = L.map('map').setView([51.505, -0.09], 13);</span
-              >
-            </li>
-            <ul>
-              <li>
-                On the left side of the assignment operator, the variable named
-                <em>map</em> is declared. (<strong
-                  >Note to new developers:</strong
-                >
-                <em>var</em> is the
-                <a
-                  href="https://www.codecademy.com/article/javascript-versions"
-                  target="_blank"
-                  title="Learn about JavaScript Versions: ES6 and Before on Codecademy"
-                  >pre-<abbr title="ECMAScript 6">ES6</abbr></a
-                >
-                convention for declaring variables. Substitution of
-                <em>var</em> by either of the now-common keywords
-                <em>let</em> or <em>const</em> is acceptable here.
-              </li>
-              <li>
-                On the right side of the assignment operator, the
-                <em>L</em> signifies "Leaflet."
-              </li>
-              <li>
-                After the dot operator and the method called <em>map</em>,
-                include the map's ID from step 2 as the argument in parentheses.
-                Wrap the ID in quotation marks.
-              </li>
-              <li>
-                After the next dot operator, the purpose of the
-                <em>setView</em> method is to determine the default coordinates
-                and zoom level for the map. The method takes in its parentheses
-                the coordinates [latitude, longitude] as the first argument and
-                an integer designating the zoom level as a second argument. The
-                first and second arguments are separated by a comma.
-              </li>
+    <div class="full-leaflet-tutorial">
+      <div class="header-wrapper">
+        <div class="inset-wrapper">
+          <header>
+            <h1 id="leaflet-tutorial">Leaflet Tutorial</h1>
+            <p>Written in August of 2022 by Addy López</p>
+            <article>
+              <h2>Background Information:</h2>
+              <section>
+                <h3>What Is Leaflet?</h3>
+                <p>
+                  According to its home page,
+                  <a
+                    href="https://leafletjs.com/"
+                    title="To Leaflet's home page"
+                    target="_blank"
+                    >Leaflet</a
+                  >
+                  was created "11 years ago by Volodymyr Agafonkin, a Ukrainian
+                  citizen" and is "the leading open-source JavaScript library
+                  for mobile-friendly interactive maps."
+                </p>
+              </section>
+              <section>
+                <h3>The Purpose of This Tutorial:</h3>
+                <p>
+                  This web page provides a short step-by-step tutorial for
+                  developers to get started with Leaflet in order to build
+                  interactive map features that can be integrated with other
+                  data. Learn how to initialize a map, create a marker with a
+                  pop-up, add a layers control, and include a geocoder to search
+                  for different cities.
+                </p>
+                <p>
+                  Each instruction is assigned a number for quick
+                  identification, while each bullet point provides explanatory
+                  details as a supplement to clear up any possible confusion. It
+                  looks like a lot of text, but the process is actually quite
+                  simple. Run through these steps just once and a new world will
+                  open up for you to explore!
+                </p>
+                <p>
+                  Check out the resources after the tutorial to continue on this
+                  journey. Although the focus here is on Leaflet in vanilla
+                  JavaScript, there are additional resources at the bottom for
+                  developers who are interested in learning React Leaflet.
+                  Familiarity with the simple steps outlined below will make it
+                  a lot easier to delve into the documentation to experiment
+                  with building more complex map features.
+                </p>
+              </section>
+              <section>
+                <h3>Personal Motivations:</h3>
+                <p>
+                  Although Leaflet is not a particularly difficult framework to
+                  use in vanilla JavaScript, I realized that getting started
+                  could have been a lot easier if I had had all of the
+                  information I needed all on one page with clear instructions
+                  that assumed no prior knowledge of either Leaflet or mapping
+                  jargon (like, what is a "tile layer"?). I often had to toggle
+                  back and forth between Leaflet's documentation, my coding
+                  editor, and a black hole of various video demos and articles
+                  of varying usefulness that I found by trial and error.
+                </p>
+                <p>
+                  So, I started documenting the steps that I took for my own
+                  future reference so that I wouldn't have to look all over the
+                  place all over again! I wanted to learn the basic features and
+                  at the same time understand what I was doing so that I could
+                  become a better developer, not just someone who got better at
+                  copying and pasting inscrutable code. The thought of sparing
+                  other prospective learners unnecessary trouble motivated me to
+                  organize the information that any beginner might need and to
+                  make this tutorial public.
+                </p>
+                <p>
+                  Once I learned how to use Leaflet as an experimental design
+                  feature for my React weather application, I wanted to spread
+                  that knowledge especially to my development community at
+                  <a
+                    href="https://www.shecodes.io/students"
+                    target="_blank"
+                    title="To SheCodes Alumnae page"
+                    >SheCodes</a
+                  >. Leaflet offers wonderful possibilities for front-end
+                  developers to experiment with the visual presentation of data.
+                  I think it will appeal to a lot of my peers who are looking
+                  for new directions to take in their coding journeys.
+                </p>
+                <p>
+                  I also felt deeply moved by the inspiring examples on the
+                  pop-up on Leaflet's home page, which attest to the powerful
+                  storytelling that can be done with code and maps. I'm sharing
+                  this tutorial as a small tribute to the Ukrainian people by
+                  supporting Ukranian web development.
+                </p>
+                <p>
+                  Thank you for taking an interest. I hope that you will feel
+                  inspired to take this knowledge further and create some cool
+                  apps! Happy coding!
+                </p>
+              </section>
+            </article>
+            <section>
+              <h2>Menu:</h2>
+              <h4>Jump to:</h4>
               <ul>
                 <li>
-                  <strong>A note about the zoom level:</strong> decrement the
-                  integer to zoom out; increment the integer to zoom in. (To
-                  learn more, see the documentation on
                   <a
-                    href="https://leafletjs.com/examples/zoom-levels/"
-                    title="To Leaflet's documentation on Zoom Levels"
-                    target="_blank"
-                    >zoom levels</a
-                  >.)
+                    href="#initialize-map"
+                    title="Jump directly to How to Initialize the Map | Leaflet Tutorial"
+                    >How to Initialize the Map</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#add-marker"
+                    title="Jump directly to How to Add a Marker with a Pop-Up | Leaflet Tutorial"
+                    >How to Add a Marker with a Pop-Up</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#add-tile-layers"
+                    title="Jump directly to How to Add More Tile Layers and a Layers Control | Leaflet Tutorial"
+                    >How to Add More Tile Layers and a Layers Control</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#geocoder"
+                    title="Jump directly to How to Include a Geocoder Plug-in to Search for Cities on the Map"
+                    >How to Include a Geocoder Plug-in to Search for Cities on
+                    the Map</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#resources-react"
+                    title="Jump directly to Resources | Leaflet"
+                    >Resources | Leaflet</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#resources-react-leaflet"
+                    title="Jump directly to Resources | React Leaflet"
+                    >Resources | React Leaflet</a
+                  >
                 </li>
               </ul>
-            </ul>
-          </ul>
-          <li>
-            Include the next line of code from Leaflet's
-            <a
-              href="https://leafletjs.com/index.html"
-              title="To Leaflet's overview"
-              target="_blank"
-              >overview</a
-            >
-            to add the tile layer to the map.
-            <ul>
+            </section>
+          </header>
+        </div>
+      </div>
+      <div class="chapter-one">
+        <div class="inset-wrapper">
+          <h2>Let's get started!</h2>
+          <article>
+            <h3 id="initialize-map">How to Initialize the Map:</h3>
+            <ol>
               <li>
-                The tile layer includes a URL and an attribution, so that credit
-                is given where credit is due.
+                Import Leaflet's
+                <abbr title="Cascading Style Sheets">CSS</abbr> and
+                <abbr title="JavaScript">JS</abbr> to the head of your
+                index.html file by copying and pasting the link and script tags
+                from the
+                <a
+                  href="https://leafletjs.com/download.html"
+                  title="To Leaflet's official documentation"
+                  target="_blank"
+                  >documentation</a
+                >.
+              </li>
+              <li>
+                Create an empty div and assign it an ID to target the map (use a
+                descriptive name, such as <em>id</em> = "map" or <em>id</em> =
+                "leaflet-map").
+              </li>
+              <li>
+                Inside a style tag in the head, assign width and height to the
+                map using the ID's selector. It is a requirement to assign a
+                height to the map for Leaflet to work. (<strong>Tip:</strong> a
+                rule set of {width: 100%; height: 100<abbr
+                  title="viewport height"
+                  >vh</abbr
+                >;} will render a full-screen map).
               </li>
               <ul>
                 <li>
-                  In the map at the top of this web page, each of the map
-                  display options in the top-right corner (excluding the
-                  markers) represents a different tile layer. The attribution
-                  appears with a link to Leaflet at the bottom or bottom-right
-                  corner of the map.
+                  To select an ID in
+                  <abbr title="Cascading Style Sheets">CSS</abbr>, prepend the
+                  name of the ID with a pound sign (for an ID of "map", write
+                  #map).
                 </li>
                 <li>
-                  To learn more about tile layers, check out
+                  For more involved styling, consider linking to a separate
+                  stylesheet in the head tag of your
+                  <abbr title="Hypertext Markup Language">HTML</abbr> file.
+                </li>
+                <li>
+                  For more information on how to style the map for mobile
+                  devices, see
                   <a
-                    href="https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/adding-tile-layers-to-your-web-map/#:~:text=A%20tile%20layer%20is%20a,format%20on%20the%20web%20server."
+                    href="https://leafletjs.com/examples/mobile/"
+                    title="To Leaflet on Mobile Tutorial"
                     target="_blank"
-                    title="Adding Tile Layers to Your Web Map | ArcGIS Blog"
-                    >this blog post</a
+                    >Leaflet on Mobile</a
                   >.
                 </li>
               </ul>
-            </ul>
-            <ul>
-              <li>
-                Here is the sample given:<br />
-                <span class="code"
-                  >L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                  {attribution: '&copy;
-                  <a href="https://www.openstreetmap.org/copyright"
-                    >OpenStreetMap</a
-                  >
-                  contributors'}).addTo(map);</span
-                >
-              </li>
+              <li>Add a script tag above the body's closing tag.</li>
               <ul>
                 <li>
-                  <strong>Note:</strong> Copy the attribution's code directly
-                  from the documentation, not from the sample given here. The
-                  browser's user agent rendered the symbol for copyright and the
-                  anchor link wrapping "OpenStreetMap," interpreting the code
-                  instead of faithfully transcribing it character by character.
+                  Consider using a separate
+                  <abbr title="JavaScript">JS</abbr> file for more involved
+                  projects. (Simply add an <em>src</em> attribute to the script
+                  tag and include the name of the file where you will write your
+                  <abbr title="JavaScript">JS</abbr>, such as index.js, there.)
                 </li>
-              </ul>
-            </ul>
-          </li>
-
-          <li>
-            Assign this code to a variable (for example,
-            <span class="code">const openStreetMap = L.tileLayer</span> etc.)
-          </li>
-          <li>
-            For improved legibility, call the addTo(map) method on this new
-            variable instead of at the end of the line above. For example:
-            <span class="code">openStreetMap.addTo(map);</span>
-          </li>
-          <li>
-            Congratulations! You have initialized a map! Check the browser--by
-            now, the OpenStreetMap tile layer should be visible as a map. If the
-            image is broken, review steps 1 through 6 and use the information in
-            the bullet points after each step to debug your application.
-          </li>
-        </ol>
-      </article>
-      <article>
-        <h3 id="add-marker">How to Add a Marker with a Pop-Up:</h3>
-        <h4>To create a default marker:</h4>
-        <ol>
-          <li>
-            Explore the map at the top of this web page. In the center, there is
-            a blue icon that looks like an upside-down teardrop with a white
-            eyelet. That is the default marker. Click on the marker to see the
-            pop-up message!
-          </li>
-          <li>
-            Go to the
-            <a
-              href="https://leafletjs.com/reference.html#marker"
-              target="_blank"
-              title="To the Marker section of Leaflet's documentation"
-              >Marker section</a
-            >
-            of Leaflet's documentation.
-          </li>
-          <li>
-            Copy this line of code from the "Usage example":
-            <br />
-            <span class="code">L.marker([50.5, 30.5]).addTo(map);</span>
-          </li>
-          <ul>
-            <li>
-              Explanation of the code above: This line instructs Leaflet (that
-              is, <em>L</em>) to generate a marker at the coordinates specified.
-              The in-built <em>marker</em> method takes as its first argument a
-              latitude and a longitude separated by a comma and wrapped in
-              square brackets. Notice that the latitude and longitude are NOT
-              separate arguments. The <em>addTo(map)</em> method adds the marker
-              to the map at the location designated by the given coordinates.
-            </li>
-          </ul>
-          <li>
-            Paste that line into your <abbr title="JavaScript">JS</abbr> code
-            anywhere beneath where you initialized the map with its first tile
-            layer.
-          </li>
-          <li>
-            Modify the latitude and longitude in square brackets to reflect the
-            coordinates of the location where you wish to place the marker.
-          </li>
-          <li>
-            To keep track of any icon that you create in this way, declare a
-            variable and assign it to the line of code that generates the
-            marker. Then you can remove the <em>addTo(map)</em> method from the
-            end and instead call that method on the variable. For example:
-            <br />
-            <span class="code"
-              >const defaultMarker = L.marker([50.4501, 33.5234]);</span
-            >
-            <br />
-            <span class="code">defaultMarker.addTo(map);</span>
-          </li>
-          <ul>
-            <li>
-              Assigning the marker to a variable will make the logic of your
-              code more intelligible when you want to add a pop-up.
-            </li>
-          </ul>
-        </ol>
-        <h4>To add a pop-up on this default marker:</h4>
-        <ol>
-          <li>
-            Visit the
-            <a
-              href="https://leafletjs.com/reference.html#popup"
-              target="_blank"
-              title="To the Popup section of Leaflet's documentation"
-              >Popup section</a
-            >
-            of Leaflet's documentation.
-          </li>
-          <li>
-            Under the "Usage example," copy this line of code: <br />
-            <span class="code"
-              >marker.bindPopup(popupContent).openPopup();</span
-            >
-          </li>
-          <ul>
-            <li>
-              Explanation of the code above: The <em>bindPopup</em> method is
-              called on the marker in order to bind the pop-up's message to the
-              marker. A placeholder for the pop-up content is given in
-              parentheses as the <em>bindPopup</em> method's argument. Then, the
-              <em>openPopup</em> method is called on the pop-up that is bound to
-              the marker; its purpose is to enable the opening of the pop-up
-              message on the marker.
-            </li>
-            <ul>
-              <li>
-                As it says in the documentation, "Use
-                <a
-                  href="https://leafletjs.com/reference.html#map-openpopup"
-                  target="_blank"
-                  title="To the Map.openPopup method on Leaflet's documentation"
-                  >Map.openPopup</a
-                >
-                to open popups while making sure that only one popup is open at
-                one time (recommended for usability), or use
-                <a
-                  href="https://leafletjs.com/reference.html#map-addlayer"
-                  target="_blank"
-                  title="To the Map.addLayer method on Leaflet's documentation"
-                  >Map.addLayer</a
-                >
-                to open as many as you want".
-              </li>
-            </ul>
-          </ul>
-          <li>
-            Declare a variable for the pop-up and paste the code that you copied
-            to the right of assignment operator. Substitute your marker's
-            variable (from step 6 of "To create a default marker" in this
-            tutorial) for
-            <em>marker</em>. Substitute your message for the placeholder
-            <em>popupContent</em>. Wrap your message in quotation marks within
-            the parentheses to make it a string. For example:
-            <br />
-            <span class="code"
-              >const defaultMarkerPopup = defaultMarker.bindPopup("I am the
-              default marker's popup!").openPopup();</span
-            >
-          </li>
-          <li>
-            Finally, with your code formatted in this manner, you can eliminate
-            the
-            <em>addTo(map)</em> method called on the default marker in step 6 of
-            "To create a default marker" in this tutorial. Instead, you can add
-            the default marker and the pop-up together in one line of code to
-            the map. So, on the next line of your coding editor, call the
-            <em>addTo(map)</em> method on the variable you declared for storing
-            the pop-up. For example:
-            <br />
-            <span class="code">defaultMarkerPopup.addTo(map);</span>
-          </li>
-          <li>
-            Now there should be a default marker on the map at the coordinates
-            you specified with your pop-up message when you click on the marker!
-            Check your map and return to these steps if you need to troubleshoot
-            any problems.
-          </li>
-        </ol>
-        <h4>For a customized marker:</h4>
-        <ol>
-          <li>
-            Explore the map at the top of this web page. Slightly off-center,
-            there is a red icon of a thermometer. That is a marker with a
-            customized icon. Click on the thermometer icon to see the pop-up
-            message!
-          </li>
-          <li>
-            Before we create the new marker, let's store the information for our
-            customized icon in a new variable. Here is an example of how to
-            generate a customized icon in Leaflet:
-            <br />
-            <span class="code"
-              >const customIcon = L.icon({iconUrl:
-              "./images/thermometer-icon-marker.png", iconSize: [45, 45],
-              });</span
-            >
-          </li>
-          <ul>
-            <li>
-              Explanation of the code above: The keyword <em>const</em> declares
-              a constant variable named <em>customIcon</em>. After the
-              assignment operator, Leaflet (that is, <em>L</em>) is instructed
-              to generate an icon by using the <em>icon</em> method. In
-              parentheses, the argument of the <em>icon</em> method is an object
-              in curly braces. The object has two properties:
-              <em>iconUrl</em> and <em>iconSize</em>, separated by a comma. The
-              value of the property <em>iconUrl</em> is the path to the image
-              file to be used as the customized icon. It is wrapped in quotation
-              marks. The value of the property <em>iconSize</em> is an array
-              with two integer values separated by a comma. The first integer
-              value represents the width in pixels of the icon, while the second
-              integer value represents its height in pixels.
-            </li>
-            <li>
-              <strong>Note:</strong> The value of the property
-              <em>iconUrl</em> can be either the path to the image file or the
-              URL at which that image is hosted.
-            </li>
-            <li>
-              To see other optional properties you could use to further
-              customize the icon's appearance, go to Leaflet's documentation on
-              <a
-                href="https://leafletjs.com/examples/custom-icons/"
-                target="_blank"
-                title="To Leaflet's documentation: Markers with Custom Icons"
-                >Markers with Custom Icons</a
-              >.
-            </li>
-          </ul>
-          <li>
-            Now let's create a new marker that will use the customized icon.
-            Declare a new variable to store the new marker. As with the default
-            marker, you will have to specify the coordinates at which you would
-            like the marker to appear. After the coordinates, include the icon
-            option as a second parameter, like this:
-            <br />
-            <span class="code"
-              >const customMarker = L.marker([50.4501, 30.5234], { icon:
-              customIcon, });</span
-            >
-          </li>
-          <ul>
-            <li>
-              Explanation of the code above: The keyword <em>const</em> declares
-              a new constant variable named <em>customMarker</em>. After the
-              assignment operator, Leaflet (that is, <em>L</em>) is instructed
-              to generate a marker. In this case, the <em>marker</em> method
-              takes two arguments separated by a comma, with the two arguments
-              wrapped in parentheses. The first argument is the latitude and
-              longitude separated by a comma and wrapped in square brackets. The
-              second argument uses curly braces and includes the icon option.
-              The value of the property <em>icon</em> is the variable
-              <em>customIcon</em> that we created in the previous step.
-            </li>
-          </ul>
-          <li>
-            To add the new marker with the customized icon to the map, call the
-            <em>addTo(map)</em> method on the variable you created in the
-            previous step. For example,
-            <br />
-            <span class="code">customMarker.addTo(map);</span>
-          </li>
-        </ol>
-        <h4>To add a pop-up on this customized marker:</h4>
-        <ol>
-          <li>
-            This process is essentially the same as the process to add a pop-up
-            on the default marker. The only difference is that the customized
-            icon needed to be generated and included in a new marker before
-            binding the pop-up to it. Below is an example of a pop-up on the
-            customized marker that we created above:
-            <br />
-            <span class="code"
-              >const customMarkerPopup = customMarker.bindPopup("I am a pop-up
-              on the customized marker!").openPopup();</span
-            >
-          </li>
-          <li>
-            Finally, when we add <em>customMarkerPopup</em> to the map using the
-            <em>addTo(map)</em> method, we can refactor our code. Eliminate the
-            line of code added in step 4 of "For a customized marker." When you
-            add the following code, it will add the pop-up with the marker
-            simultaneously to the map:
-            <br />
-            <span class="code">customMarkerPopup.addTo(map);</span>
-          </li>
-        </ol>
-        <h4>To customize the pop-up display using CSS:</h4>
-        <ul>
-          <li>
-            It is possible to change how the pop-up looks. Because markers are
-            important for displaying data at particular locations, it is worth
-            experimenting with DevTools in the browser to customize how data are
-            being displayed. (By "DevTools," I mean the developer tools that are
-            available when you "right-click" on a web page and select the
-            "Inspect" option from the drop-down list.) By using DevTools to
-            target elements on the map that reveal Leaflet's CSS classes, you
-            can easily override Leaflet's default styling and reassign
-            properties to customize elements like pop-ups. For instance, in the
-            map at the top of this web page, the default styling of the pop-ups,
-            which had a white background and black text, has been changed to a
-            black background with the text in white. Far more elaborate changes
-            are possible.
-          </li>
-          <li>
-            You are welcome to experiment with my map, hack the current CSS
-            using DevTools, and discover which of Leaflet's classes are
-            controlling the default appearance of elements. That's how I
-            learned.
-          </li>
-          <li>
-            Once you have identified which classes control what, you can target
-            those classes from your CSS outside of the browser in your text
-            editor to make the changes persist. Otherwise, the changes that you
-            make in DevTools alone will disappear upon refreshing the page. Good
-            luck, and have fun!
-          </li>
-        </ul>
-      </article>
-      <article>
-        <h3 id="add-tile-layers">
-          How to Add More Tile Layers and a Layers Control:
-        </h3>
-        <h4>To add new tile layers:</h4>
-        <ol>
-          <li>
-            Browse Leaflet's tile layer providers
-            <a
-              href="https://leaflet-extras.github.io/leaflet-providers/preview/"
-              target="_blank"
-              title="To Leaflet-Providers Preview"
-              >here</a
-            >.
-          </li>
-          <ul>
-            <li>
-              You will see a documentation window affixed to the top-center and
-              a scrollable sidebar to the right.
-            </li>
-          </ul>
-          <li>
-            Simply select the tile layer you would like to add to your map, look
-            in the documentation window for the section “Plain JavaScript,” and
-            copy the code you see there. It will resemble the code used to add
-            the OpenStreetMap tile layer in step 6 of "How to Initialize the
-            Map" in this tutorial.
-          </li>
-          <ul>
-            <li>
-              When you select an option from the sidebar, the map that forms the
-              web page's main background will change to provide a preview of the
-              tile layer selected.
-            </li>
-            <li>
-              If the preview is not visible, it is possible that that option is
-              restricted to a particular range of zoom levels. Try zooming in or
-              out using your mouse or trackpad to see if the preview activates.
-              Otherwise, you might need an API key to view or use the tile
-              layer.
-            </li>
-          </ul>
-          <li>
-            Once you paste that code from the documentation into the
-            <abbr title="JavaScript">JS</abbr> portion of your code, use the dot
-            operator and call the <em>addTo(map)</em> method on the variable
-            storing the tile layer, just as you did in step 8 of "How to
-            Initialize the Map" in this tutorial.
-          </li>
-          <ul>
-            <li>
-              <strong>Note:</strong> Although the tile layers on that page are
-              free, some of them require an API key. Take a closer look at the
-              tile layer's URL or the extra, parameterized options in curly
-              braces sometimes provided after the URL for an indication that an
-              API key is needed.
-              <ul>
                 <li>
-                  You can find out more information, such as which tile layer
-                  providers require registration, if you click
+                  (Alternatively, if using a separate
+                  <abbr title="JavaScript">JS</abbr> file, for the script file
+                  to load more quickly, you could include the script tag with
+                  the <em>src</em> attribute in the head and include the
                   <a
-                    href="https://github.com/leaflet-extras/leaflet-providers"
-                    title="To Leaflet-providers GitHub repository"
+                    href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-async"
+                    title="To MDN async attribute documentation"
                     target="_blank"
-                    >here</a
-                  >
-                  and scroll down or click the link at the top of the tile layer
-                  providers page that reads "Leaflet-providers" to get to the
-                  same web page.
+                    ><em>async</em> attribute</a
+                  >.)
                 </li>
               </ul>
-            </li>
-          </ul>
-          <li>
-            Feel free to repeat these steps to add multiple tile layers! (If you
-            check the display right now, it might look a little chaotic. Don't
-            worry, read on.)
-          </li>
-          <br />
-        </ol>
-        <h4>
-          To keep multiple tile layers organized and separable in the display,
-          let's add a layers control:
-        </h4>
-        <ol>
-          <li>
-            Take a quick look at the example map at the top of this web page.
-            The layers control is represented by the large icon in the top-right
-            corner. Hover the cursor over that icon. When you do so, the layers
-            control will open and you will be able to select a tile layer by
-            name to display.
-            <ul>
               <li>
-                The options with circles which are listed above the line in the
-                layers control represent the base layers.
+                Inside the script tag (or your
+                <abbr title="JavaScript">JS</abbr> file), declare a map variable
+                and use the syntax from Leaflet's
+                <a
+                  href="https://leafletjs.com/index.html"
+                  title="To Leaflet's overview"
+                  target="_blank"
+                  >overview</a
+                >. Explanation of the syntax below:
               </li>
-              <li>
-                The options with squares which are listed below the line
-                represent overlays, such as markers.
-              </li>
-            </ul>
-          </li>
-          <li>
-            Navigate to the Layers Control section of Leaflet’s documentation by
-            clicking
-            <a
-              href="https://leafletjs.com/examples/layers-control/"
-              title="To Leaflet's documentation on Layer Groups and Layers Control"
-              target="_blank"
-              >this link</a
-            >.
-          </li>
-          <li>
-            Since you have already initialized your map and added the base
-            layers, you can scroll past the first block of example code and go
-            directly to this example:<br /><span class="code"
-              >var baseMaps = {"OpenStreetMap": osm, "Mapbox Streets":
-              streets};<br />var overlayMaps = {"Cities": cities};</span
-            >
-          </li>
-          <ul>
-            <li>
-              Explanation of the first code block above: The keyword
-              <em>var</em> declares the variable <em>baseMaps</em>. The variable
-              is assigned to an object. The object's properties are strings that
-              are named after the tile layers included as base layers
-              ("OpenStreetMap" and "Mapbox Streets"). The value of each property
-              is the variable under which that tile layer is stored (in the
-              example code, <em>osm</em> is the variable storing the tile layer
-              for "OpenStreetMap").
               <ul>
                 <li>
-                  However the property is named is how it will appear named in
-                  the tile layer controller on the map.
+                  Here is the sample given: <br />
+                  <span class="code"
+                    >var map = L.map('map').setView([51.505, -0.09], 13);</span
+                  >
                 </li>
+                <ul>
+                  <li>
+                    On the left side of the assignment operator, the variable
+                    named
+                    <em>map</em> is declared. (<strong
+                      >Note to new developers:</strong
+                    >
+                    <em>var</em> is the
+                    <a
+                      href="https://www.codecademy.com/article/javascript-versions"
+                      target="_blank"
+                      title="Learn about JavaScript Versions: ES6 and Before on Codecademy"
+                      >pre-<abbr title="ECMAScript 6">ES6</abbr></a
+                    >
+                    convention for declaring variables. Substitution of
+                    <em>var</em> by either of the now-common keywords
+                    <em>let</em> or <em>const</em> is acceptable here.
+                  </li>
+                  <li>
+                    On the right side of the assignment operator, the
+                    <em>L</em> signifies "Leaflet."
+                  </li>
+                  <li>
+                    After the dot operator and the method called <em>map</em>,
+                    include the map's ID from step 2 as the argument in
+                    parentheses. Wrap the ID in quotation marks.
+                  </li>
+                  <li>
+                    After the next dot operator, the purpose of the
+                    <em>setView</em> method is to determine the default
+                    coordinates and zoom level for the map. The method takes in
+                    its parentheses the coordinates [latitude, longitude] as the
+                    first argument and an integer designating the zoom level as
+                    a second argument. The first and second arguments are
+                    separated by a comma.
+                  </li>
+                  <ul>
+                    <li>
+                      <strong>A note about the zoom level:</strong> Decrement
+                      the integer to zoom out; increment the integer to zoom in.
+                      (To learn more, see the documentation on
+                      <a
+                        href="https://leafletjs.com/examples/zoom-levels/"
+                        title="To Leaflet's documentation on Zoom Levels"
+                        target="_blank"
+                        >zoom levels</a
+                      >.)
+                    </li>
+                  </ul>
+                </ul>
+              </ul>
+              <li>
+                Include the next line of code from Leaflet's
+                <a
+                  href="https://leafletjs.com/index.html"
+                  title="To Leaflet's overview"
+                  target="_blank"
+                  >overview</a
+                >
+                to add the tile layer to the map.
+                <ul>
+                  <li>
+                    The tile layer includes a URL and an attribution, so that
+                    credit is given where credit is due.
+                  </li>
+                  <ul>
+                    <li>
+                      In the map at the top of this web page, each of the map
+                      display options in the top-right corner (excluding the
+                      markers) represents a different tile layer. The
+                      attribution appears with a link to Leaflet at the bottom
+                      or bottom-right corner of the map.
+                    </li>
+                    <li>
+                      To learn more about tile layers, check out
+                      <a
+                        href="https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/adding-tile-layers-to-your-web-map/#:~:text=A%20tile%20layer%20is%20a,format%20on%20the%20web%20server."
+                        target="_blank"
+                        title="Adding Tile Layers to Your Web Map | ArcGIS Blog"
+                        >this blog post</a
+                      >.
+                    </li>
+                  </ul>
+                </ul>
+                <ul>
+                  <li>
+                    Here is the sample given:<br />
+                    <span class="code"
+                      >L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                      {attribution: '&copy;
+                      <a href="https://www.openstreetmap.org/copyright"
+                        >OpenStreetMap</a
+                      >
+                      contributors'}).addTo(map);</span
+                    >
+                  </li>
+                  <ul>
+                    <li>
+                      <strong>Note:</strong> Copy the attribution's code
+                      directly from the documentation, not from the sample given
+                      here. The browser's user agent rendered the symbol for
+                      copyright and the anchor link wrapping "OpenStreetMap,"
+                      interpreting the code instead of faithfully transcribing
+                      it character by character.
+                    </li>
+                  </ul>
+                </ul>
+              </li>
+
+              <li>
+                Assign this code to a variable (for example,
+                <span class="code">const openStreetMap = L.tileLayer</span>
+                etc.)
+              </li>
+              <li>
+                For improved legibility, call the addTo(map) method on this new
+                variable instead of at the end of the line above. For example:
+                <span class="code">openStreetMap.addTo(map);</span>
+              </li>
+              <li>
+                Congratulations! You have initialized a map! Check the
+                browser--by now, the OpenStreetMap tile layer should be visible
+                as a map. If the image is broken, review steps 1 through 6 and
+                use the information in the bullet points after each step to
+                debug your application.
+              </li>
+            </ol>
+          </article>
+        </div>
+      </div>
+      <div class="chapter-two">
+        <div class="inset-wrapper">
+          <article>
+            <h3 id="add-marker">How to Add a Marker with a Pop-Up:</h3>
+            <h4>To create a default marker:</h4>
+            <ol>
+              <li>
+                Explore the map at the top of this web page. In the center,
+                there is a blue icon that looks like an upside-down teardrop
+                with a white eyelet. That is the default marker. Click on the
+                marker to see the pop-up message!
+              </li>
+              <li>
+                Go to the
+                <a
+                  href="https://leafletjs.com/reference.html#marker"
+                  target="_blank"
+                  title="To the Marker section of Leaflet's documentation"
+                  >Marker section</a
+                >
+                of Leaflet's documentation.
+              </li>
+              <li>
+                Copy this line of code from the "Usage example":
+                <br />
+                <span class="code">L.marker([50.5, 30.5]).addTo(map);</span>
+              </li>
+              <ul>
                 <li>
-                  The order in which each property is declared in the object
-                  will determine the order in which each tile layer appears in
-                  the controller.
+                  Explanation of the code above: This line instructs Leaflet
+                  (that is, <em>L</em>) to generate a marker at the coordinates
+                  specified. The in-built <em>marker</em> method takes as its
+                  first argument a latitude and a longitude separated by a comma
+                  and wrapped in square brackets. Notice that the latitude and
+                  longitude are NOT separate arguments. The
+                  <em>addTo(map)</em> method adds the marker to the map at the
+                  location designated by the given coordinates.
                 </li>
               </ul>
-            </li>
-            <li>
-              Explanation of the second code block above: The keyword
-              <em>var</em> declares the variable <em>overlayMaps</em>. The
-              variable is assigned to an object. The property "Cities" is a
-              string; its value is the variable <em>cities</em>. The string
-              "Cities" will appear in the tile layer controller on the map. The
-              user will be able to check or uncheck a box next to "Cities" in
-              order to use <var>cities</var> as an overlay to the map or to
-              remove <var>cities</var> from the display.
-            </li>
+              <li>
+                Paste that line into your
+                <abbr title="JavaScript">JS</abbr> code anywhere beneath where
+                you initialized the map with its first tile layer.
+              </li>
+              <li>
+                Modify the latitude and longitude in square brackets to reflect
+                the coordinates of the location where you wish to place the
+                marker.
+              </li>
+              <li>
+                To keep track of any icon that you create in this way, declare a
+                variable and assign it to the line of code that generates the
+                marker. Then you can remove the <em>addTo(map)</em> method from
+                the end and instead call that method on the variable. For
+                example:
+                <br />
+                <span class="code"
+                  >const defaultMarker = L.marker([50.4501, 33.5234]);</span
+                >
+                <br />
+                <span class="code">defaultMarker.addTo(map);</span>
+              </li>
+              <ul>
+                <li>
+                  Assigning the marker to a variable will make the logic of your
+                  code more intelligible when you want to add a pop-up.
+                </li>
+              </ul>
+            </ol>
+            <h4>To add a pop-up on this default marker:</h4>
+            <ol>
+              <li>
+                Visit the
+                <a
+                  href="https://leafletjs.com/reference.html#popup"
+                  target="_blank"
+                  title="To the Popup section of Leaflet's documentation"
+                  >Popup section</a
+                >
+                of Leaflet's documentation.
+              </li>
+              <li>
+                Under the "Usage example," copy this line of code: <br />
+                <span class="code"
+                  >marker.bindPopup(popupContent).openPopup();</span
+                >
+              </li>
+              <ul>
+                <li>
+                  Explanation of the code above: The <em>bindPopup</em> method
+                  is called on the marker in order to bind the pop-up's message
+                  to the marker. A placeholder for the pop-up content is given
+                  in parentheses as the <em>bindPopup</em> method's argument.
+                  Then, the <em>openPopup</em> method is called on the pop-up
+                  that is bound to the marker; its purpose is to enable the
+                  opening of the pop-up message on the marker.
+                </li>
+                <ul>
+                  <li>
+                    As it says in the documentation, "Use
+                    <a
+                      href="https://leafletjs.com/reference.html#map-openpopup"
+                      target="_blank"
+                      title="To the Map.openPopup method on Leaflet's documentation"
+                      >Map.openPopup</a
+                    >
+                    to open popups while making sure that only one popup is open
+                    at one time (recommended for usability), or use
+                    <a
+                      href="https://leafletjs.com/reference.html#map-addlayer"
+                      target="_blank"
+                      title="To the Map.addLayer method on Leaflet's documentation"
+                      >Map.addLayer</a
+                    >
+                    to open as many as you want".
+                  </li>
+                </ul>
+              </ul>
+              <li>
+                Declare a variable for the pop-up and paste the code that you
+                copied to the right of assignment operator. Substitute your
+                marker's variable (from step 6 of "To create a default marker"
+                in this tutorial) for
+                <em>marker</em>. Substitute your message for the placeholder
+                <em>popupContent</em>. Wrap your message in quotation marks
+                within the parentheses to make it a string. For example:
+                <br />
+                <span class="code"
+                  >const defaultMarkerPopup = defaultMarker.bindPopup("I am the
+                  default marker's popup!").openPopup();</span
+                >
+              </li>
+              <li>
+                Finally, with your code formatted in this manner, you can
+                eliminate the
+                <em>addTo(map)</em> method called on the default marker in step
+                6 of "To create a default marker" in this tutorial. Instead, you
+                can add the default marker and the pop-up together in one line
+                of code to the map. So, on the next line of your coding editor,
+                call the <em>addTo(map)</em> method on the variable you declared
+                for storing the pop-up. For example:
+                <br />
+                <span class="code">defaultMarkerPopup.addTo(map);</span>
+              </li>
+              <li>
+                Now there should be a default marker on the map at the
+                coordinates you specified with your pop-up message when you
+                click on the marker! Check your map and return to these steps if
+                you need to troubleshoot any problems.
+              </li>
+            </ol>
+            <h4>For a customized marker:</h4>
+            <ol>
+              <li>
+                Explore the map at the top of this web page. Slightly
+                off-center, there is a red icon of a thermometer. That is a
+                marker with a customized icon. Click on the thermometer icon to
+                see the pop-up message!
+              </li>
+              <li>
+                Before we create the new marker, let's store the information for
+                our customized icon in a new variable. Here is an example of how
+                to generate a customized icon in Leaflet:
+                <br />
+                <span class="code"
+                  >const customIcon = L.icon({iconUrl:
+                  "./images/thermometer-icon-marker.png", iconSize: [45, 45],
+                  });</span
+                >
+              </li>
+              <ul>
+                <li>
+                  Explanation of the code above: The keyword
+                  <em>const</em> declares a constant variable named
+                  <em>customIcon</em>. After the assignment operator, Leaflet
+                  (that is, <em>L</em>) is instructed to generate an icon by
+                  using the <em>icon</em> method. In parentheses, the argument
+                  of the <em>icon</em> method is an object in curly braces. The
+                  object has two properties: <em>iconUrl</em> and
+                  <em>iconSize</em>, separated by a comma. The value of the
+                  property <em>iconUrl</em> is the path to the image file to be
+                  used as the customized icon. It is wrapped in quotation marks.
+                  The value of the property <em>iconSize</em> is an array with
+                  two integer values separated by a comma. The first integer
+                  value represents the width in pixels of the icon, while the
+                  second integer value represents its height in pixels.
+                </li>
+                <li>
+                  <strong>Note:</strong> The value of the property
+                  <em>iconUrl</em> can be either the path to the image file or
+                  the URL at which that image is hosted.
+                </li>
+                <li>
+                  To see other optional properties you could use to further
+                  customize the icon's appearance, go to Leaflet's documentation
+                  on
+                  <a
+                    href="https://leafletjs.com/examples/custom-icons/"
+                    target="_blank"
+                    title="To Leaflet's documentation: Markers with Custom Icons"
+                    >Markers with Custom Icons</a
+                  >.
+                </li>
+              </ul>
+              <li>
+                Now let's create a new marker that will use the customized icon.
+                Declare a new variable to store the new marker. As with the
+                default marker, you will have to specify the coordinates at
+                which you would like the marker to appear. After the
+                coordinates, include the icon option as a second parameter, like
+                this:
+                <br />
+                <span class="code"
+                  >const customMarker = L.marker([50.4501, 30.5234], { icon:
+                  customIcon, });</span
+                >
+              </li>
+              <ul>
+                <li>
+                  Explanation of the code above: The keyword
+                  <em>const</em> declares a new constant variable named
+                  <em>customMarker</em>. After the assignment operator, Leaflet
+                  (that is, <em>L</em>) is instructed to generate a marker. In
+                  this case, the <em>marker</em> method takes two arguments
+                  separated by a comma, with the two arguments wrapped in
+                  parentheses. The first argument is the latitude and longitude
+                  separated by a comma and wrapped in square brackets. The
+                  second argument uses curly braces and includes the icon
+                  option. The value of the property <em>icon</em> is the
+                  variable <em>customIcon</em> that we created in the previous
+                  step.
+                </li>
+              </ul>
+              <li>
+                To add the new marker with the customized icon to the map, call
+                the
+                <em>addTo(map)</em> method on the variable you created in the
+                previous step. For example,
+                <br />
+                <span class="code">customMarker.addTo(map);</span>
+              </li>
+            </ol>
+            <h4>To add a pop-up on this customized marker:</h4>
+            <ol>
+              <li>
+                This process is essentially the same as the process to add a
+                pop-up on the default marker. The only difference is that the
+                customized icon needed to be generated and included in a new
+                marker before binding the pop-up to it. Below is an example of a
+                pop-up on the customized marker that we created above:
+                <br />
+                <span class="code"
+                  >const customMarkerPopup = customMarker.bindPopup("I am a
+                  pop-up on the customized marker!").openPopup();</span
+                >
+              </li>
+              <li>
+                Finally, when we add <em>customMarkerPopup</em> to the map using
+                the <em>addTo(map)</em> method, we can refactor our code.
+                Eliminate the line of code added in step 4 of "For a customized
+                marker." When you add the following code, it will add the pop-up
+                with the marker simultaneously to the map:
+                <br />
+                <span class="code">customMarkerPopup.addTo(map);</span>
+              </li>
+            </ol>
+            <h4>To customize the pop-up display using CSS:</h4>
             <ul>
               <li>
-                To visualize this feature better, imagine that instead of
-                "Cities" the property were "Marker" and that the variable stored
-                a particular marker icon on the map. Without affecting the base
-                layer map, the user could easily activate or deactivate that
-                marker by checking the box next to "Marker" in the tile layer
-                controller.
+                It is possible to change how the pop-up looks. Because markers
+                are important for displaying data at particular locations, it is
+                worth experimenting with DevTools in the browser to customize
+                how data are being displayed. (By "DevTools," I mean the
+                developer tools that are available when you "right-click" on a
+                web page and select the "Inspect" option from the drop-down
+                list.) By using DevTools to target elements on the map that
+                reveal Leaflet's CSS classes, you can easily override Leaflet's
+                default styling and reassign properties to customize elements
+                like pop-ups. For instance, in the map at the top of this web
+                page, the default styling of the pop-ups, which had a white
+                background and black text, has been changed to a black
+                background with the text in white. Far more elaborate changes
+                are possible.
+              </li>
+              <li>
+                You are welcome to experiment with my map, hack the current CSS
+                using DevTools, and discover which of Leaflet's classes are
+                controlling the default appearance of elements. That's how I
+                learned.
+              </li>
+              <li>
+                Once you have identified which classes control what, you can
+                target those classes from your CSS outside of the browser in
+                your text editor to make the changes persist. Otherwise, the
+                changes that you make in DevTools alone will disappear upon
+                refreshing the page. Good luck, and have fun!
               </li>
             </ul>
-          </ul>
-          <li>
-            Once you understand the example code above, use the first code block
-            as the template to organize your layers. Declare a variable for your
-            base layers. Assign that variable to an object. In between curly
-            braces, assign properties that are strings and that correspond to
-            the name of each tile layer that you have already added to the map.
-            Follow each property's name with a colon. After the colon, assign a
-            value. The value should be the variable that stores each
-            corresponding tile layer (that is, the variable created in step 7
-            under "How to Initialize the Map" in this tutorial). Be sure to
-            include a comma after the value when listing multiple properties in
-            the object.
-          </li>
-          <li>
-            If you have an markers or other overlays that you would like to
-            organize in the layers control, use the second code block as the
-            template. Declare a variable for your base layers. Assign that
-            variable to an object. In between curly braces, assign properties
-            that are strings and that correspond to the name of each marker or
-            overlay that you have already added to the map. Follow each
-            property's name with a colon. After the colon, assign a value. The
-            value should be the variable that stores each corresponding marker
-            or overlay. Be sure to include a comma after the value when listing
-            multiple properties in the object.
-          </li>
-          <li>
-            Head back to the
-            <a
-              href="https://leafletjs.com/examples/layers-control/"
-              target="_blank"
-              title="To Leaflet's documentation on Layer Groups and Layers Control"
-              >Layers Control page</a
-            >
-            of Leaflet's documentation. Scroll down to this line of code:
-            <br />
-            <span class="code"
-              >var layerControl = L.control.layers(baseMaps,
-              overlayMaps).addTo(map);</span
-            >
-          </li>
-          <ul>
-            <li>
-              Explanation of the code above: The variable
-              <em>layerControl</em> is declared. To the right of the assignment
-              operator, the in-built <em>control</em> method tells Leaflet (that
-              is, <em>L</em>) to add the layers provided in parentheses to the
-              map. The first argument of the <em>layers</em> method is
-              <em>baseMaps</em>, and it takes the base layers' object. The
-              second argument of the <em>layers</em> method is
-              <em>overlayMaps</em>, and it takes the overlays' object.
-            </li>
-          </ul>
-          <li>
-            Underneath the base layers' object and the overlays' object that you
-            created in steps 4 and 5 above, paste the code that creates and adds
-            the layers control to the map. You can eliminate the declaration of
-            the variable and the assignment operator. Include everything to the
-            right of the equal sign. Modify the
-            <em>layers</em> method's parameters so that the names reflect the
-            names you assigned to your base layers' object and/or your overlays'
-            object.
-          </li>
-          <ul>
-            <li>
-              If you want to include only the base layers' object, you do not
-              have to include the second argument.
-            </li>
-            <li>
-              If you want to include only the overlays' object, pass
-              <em>null</em> as the first argument and include the overlays'
-              object as the second argument.
-            </li>
-          </ul>
-          <li>
-            Great! Check the browser to see your layers control! Is the icon
-            appearing in the top-right corner? When you hover the mouse over the
-            icon, does the layers control open and display the list of base
-            layers and overlays without errors? When you select each option in
-            turn, does the display change? If something went wrong, review the
-            steps and information above.
-          </li>
-        </ol>
-      </article>
-      <article>
-        <h3 id="geocoder">
-          How to Include a Geocoder Plug-in to Search for Cities on the Map:
-        </h3>
-        <ol>
-          <li>
-            To start, glance at the map at the top of this web page. Look for
-            the small icon of a magnifying glass in the top-right corner. When
-            you click on the icon, a search bar will unfold. Type in the name of
-            a city and press Enter. A drop-down menu of valid locations will
-            appear. When you select a location from the list, the map's view
-            will change to that location, and you will see a marker with an open
-            pop-up that reads the location's name! That is the feature that the
-            geocoder plug-in enables.
-          </li>
-          <li>
-            Now that you know what we're building, go to the GitHub repository
-            for the
-            <a
-              href="https://github.com/perliedman/leaflet-control-geocoder"
-              target="_blank"
-              title="To GitHub repository for Leaflet Control Geocoder plug-in"
-              >Leaflet Control Geocoder plug-in</a
-            >.
-          </li>
-          <li>
-            Scroll down to the documentation underneath the repository. Go to
-            the "Usage" section and copy both the link and script tags you see
-            there.
-          </li>
-          <li>
-            Paste that code into the head of your index.html file. You have now
-            imported the geocoder plug-in's
-            <abbr title="Cascading Style Sheets">CSS</abbr> and
-            <abbr title="JavaScript">JS</abbr> to your project.
-          </li>
-          <li>
-            Assuming that you have already initialized your map and added a tile
-            layer (such as OpenStreetMap) to the map, you can now add the
-            geocoder to the map. Simply add this line of code to your
-            <abbr title="JavaScript">JS</abbr> code underneath where you
-            initialized the map and added the tile layer(s): <br /><span
-              class="code"
-              >L.Control.geocoder().addTo(map);</span
-            >
-          </li>
-          <ul>
-            <li>
-              By now, the <em>addTo(map)</em> method should be familiar. To read
-              about the <em>L.Control</em> method for adding map controls, go to
-              <a href="https://leafletjs.com/reference.html#control"
-                >this section</a
-              >
-              of Leaflet's documentation.
-            </li>
-          </ul>
-          <li>
-            That's it! Take a look at your map in the browser to verify that the
-            icon of the magnifying glass is there and that the search engine is
-            working.
-          </li>
-          <ul>
-            <li>
-              If you want to explore some advanced customization options, return
-              to the section labeled "Customizing" on the
+          </article>
+        </div>
+      </div>
+      <div class="chapter-three">
+        <div class="inset-wrapper">
+          <article>
+            <h3 id="add-tile-layers">
+              How to Add More Tile Layers and a Layers Control:
+            </h3>
+            <h4>To add new tile layers:</h4>
+            <ol>
+              <li>
+                Browse Leaflet's tile layer providers
+                <a
+                  href="https://leaflet-extras.github.io/leaflet-providers/preview/"
+                  target="_blank"
+                  title="To Leaflet-Providers Preview"
+                  >here</a
+                >.
+              </li>
+              <ul>
+                <li>
+                  You will see a documentation window affixed to the top-center
+                  and a scrollable sidebar to the right.
+                </li>
+              </ul>
+              <li>
+                Simply select the tile layer you would like to add to your map,
+                look in the documentation window for the section “Plain
+                JavaScript,” and copy the code you see there. It will resemble
+                the code used to add the OpenStreetMap tile layer in step 6 of
+                "How to Initialize the Map" in this tutorial.
+              </li>
+              <ul>
+                <li>
+                  When you select an option from the sidebar, the map that forms
+                  the web page's main background will change to provide a
+                  preview of the tile layer selected.
+                </li>
+                <li>
+                  If the preview is not visible, it is possible that that option
+                  is restricted to a particular range of zoom levels. Try
+                  zooming in or out using your mouse or trackpad to see if the
+                  preview activates. Otherwise, you might need an API key to
+                  view or use the tile layer.
+                </li>
+              </ul>
+              <li>
+                Once you paste that code from the documentation into the
+                <abbr title="JavaScript">JS</abbr> portion of your code, use the
+                dot operator and call the <em>addTo(map)</em> method on the
+                variable storing the tile layer, just as you did in step 8 of
+                "How to Initialize the Map" in this tutorial.
+              </li>
+              <ul>
+                <li>
+                  <strong>Note:</strong> Although the tile layers on that page
+                  are free, some of them require an API key. Take a closer look
+                  at the tile layer's URL or the extra, parameterized options in
+                  curly braces sometimes provided after the URL for an
+                  indication that an API key is needed.
+                  <ul>
+                    <li>
+                      You can find out more information, such as which tile
+                      layer providers require registration, if you click
+                      <a
+                        href="https://github.com/leaflet-extras/leaflet-providers"
+                        title="To Leaflet-providers GitHub repository"
+                        target="_blank"
+                        >here</a
+                      >
+                      and scroll down or click the link at the top of the tile
+                      layer providers page that reads "Leaflet-providers" to get
+                      to the same web page.
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <li>
+                Feel free to repeat these steps to add multiple tile layers! (If
+                you check the display right now, it might look a little chaotic.
+                Don't worry, read on.)
+              </li>
+              <br />
+            </ol>
+            <h4>
+              To keep multiple tile layers organized and separable in the
+              display, let's add a layers control:
+            </h4>
+            <ol>
+              <li>
+                Take a quick look at the example map at the top of this web
+                page. The layers control is represented by the large icon in the
+                top-right corner. Hover the cursor over that icon. When you do
+                so, the layers control will open and you will be able to select
+                a tile layer by name to display.
+                <ul>
+                  <li>
+                    The options with circles which are listed above the line in
+                    the layers control represent the base layers.
+                  </li>
+                  <li>
+                    The options with squares which are listed below the line
+                    represent overlays, such as markers.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Navigate to the Layers Control section of Leaflet’s
+                documentation by clicking
+                <a
+                  href="https://leafletjs.com/examples/layers-control/"
+                  title="To Leaflet's documentation on Layer Groups and Layers Control"
+                  target="_blank"
+                  >this link</a
+                >.
+              </li>
+              <li>
+                Since you have already initialized your map and added the base
+                layers, you can scroll past the first block of example code and
+                go directly to this example:<br /><span class="code"
+                  >var baseMaps = {"OpenStreetMap": osm, "Mapbox Streets":
+                  streets};<br />var overlayMaps = {"Cities": cities};</span
+                >
+              </li>
+              <ul>
+                <li>
+                  Explanation of the first code block above: The keyword
+                  <em>var</em> declares the variable <em>baseMaps</em>. The
+                  variable is assigned to an object. The object's properties are
+                  strings that are named after the tile layers included as base
+                  layers ("OpenStreetMap" and "Mapbox Streets"). The value of
+                  each property is the variable under which that tile layer is
+                  stored (in the example code, <em>osm</em> is the variable
+                  storing the tile layer for "OpenStreetMap").
+                  <ul>
+                    <li>
+                      However the property is named is how it will appear named
+                      in the tile layer controller on the map.
+                    </li>
+                    <li>
+                      The order in which each property is declared in the object
+                      will determine the order in which each tile layer appears
+                      in the controller.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Explanation of the second code block above: The keyword
+                  <em>var</em> declares the variable <em>overlayMaps</em>. The
+                  variable is assigned to an object. The property "Cities" is a
+                  string; its value is the variable <em>cities</em>. The string
+                  "Cities" will appear in the tile layer controller on the map.
+                  The user will be able to check or uncheck a box next to
+                  "Cities" in order to use <var>cities</var> as an overlay to
+                  the map or to remove <var>cities</var> from the display.
+                </li>
+                <ul>
+                  <li>
+                    To visualize this feature better, imagine that instead of
+                    "Cities" the property were "Marker" and that the variable
+                    stored a particular marker icon on the map. Without
+                    affecting the base layer map, the user could easily activate
+                    or deactivate that marker by checking the box next to
+                    "Marker" in the tile layer controller.
+                  </li>
+                </ul>
+              </ul>
+              <li>
+                Once you understand the example code above, use the first code
+                block as the template to organize your layers. Declare a
+                variable for your base layers. Assign that variable to an
+                object. In between curly braces, assign properties that are
+                strings and that correspond to the name of each tile layer that
+                you have already added to the map. Follow each property's name
+                with a colon. After the colon, assign a value. The value should
+                be the variable that stores each corresponding tile layer (that
+                is, the variable created in step 7 under "How to Initialize the
+                Map" in this tutorial). Be sure to include a comma after the
+                value when listing multiple properties in the object.
+              </li>
+              <li>
+                If you have an markers or other overlays that you would like to
+                organize in the layers control, use the second code block as the
+                template. Declare a variable for your base layers. Assign that
+                variable to an object. In between curly braces, assign
+                properties that are strings and that correspond to the name of
+                each marker or overlay that you have already added to the map.
+                Follow each property's name with a colon. After the colon,
+                assign a value. The value should be the variable that stores
+                each corresponding marker or overlay. Be sure to include a comma
+                after the value when listing multiple properties in the object.
+              </li>
+              <li>
+                Head back to the
+                <a
+                  href="https://leafletjs.com/examples/layers-control/"
+                  target="_blank"
+                  title="To Leaflet's documentation on Layer Groups and Layers Control"
+                  >Layers Control page</a
+                >
+                of Leaflet's documentation. Scroll down to this line of code:
+                <br />
+                <span class="code"
+                  >var layerControl = L.control.layers(baseMaps,
+                  overlayMaps).addTo(map);</span
+                >
+              </li>
+              <ul>
+                <li>
+                  Explanation of the code above: The variable
+                  <em>layerControl</em> is declared. To the right of the
+                  assignment operator, the in-built <em>control</em> method
+                  tells Leaflet (that is, <em>L</em>) to add the layers provided
+                  in parentheses to the map. The first argument of the
+                  <em>layers</em> method is <em>baseMaps</em>, and it takes the
+                  base layers' object. The second argument of the
+                  <em>layers</em> method is <em>overlayMaps</em>, and it takes
+                  the overlays' object.
+                </li>
+              </ul>
+              <li>
+                Underneath the base layers' object and the overlays' object that
+                you created in steps 4 and 5 above, paste the code that creates
+                and adds the layers control to the map. You can eliminate the
+                declaration of the variable and the assignment operator. Include
+                everything to the right of the equal sign. Modify the
+                <em>layers</em> method's parameters so that the names reflect
+                the names you assigned to your base layers' object and/or your
+                overlays' object.
+              </li>
+              <ul>
+                <li>
+                  If you want to include only the base layers' object, you do
+                  not have to include the second argument.
+                </li>
+                <li>
+                  If you want to include only the overlays' object, pass
+                  <em>null</em> as the first argument and include the overlays'
+                  object as the second argument.
+                </li>
+              </ul>
+              <li>
+                Great! Check the browser to see your layers control! Is the icon
+                appearing in the top-right corner? When you hover the mouse over
+                the icon, does the layers control open and display the list of
+                base layers and overlays without errors? When you select each
+                option in turn, does the display change? If something went
+                wrong, review the steps and information above.
+              </li>
+            </ol>
+          </article>
+        </div>
+      </div>
+      <div class="chapter-four">
+        <div class="inset-wrapper">
+          <article>
+            <h3 id="geocoder">
+              How to Include a Geocoder Plug-in to Search for Cities on the Map:
+            </h3>
+            <ol>
+              <li>
+                To start, glance at the map at the top of this web page. Look
+                for the small icon of a magnifying glass in the top-right
+                corner. When you click on the icon, a search bar will unfold.
+                Type in the name of a city and press Enter. A drop-down menu of
+                valid locations will appear. When you select a location from the
+                list, the map's view will change to that location, and you will
+                see a marker with an open pop-up that reads the location's name!
+                That is the feature that the geocoder plug-in enables.
+              </li>
+              <li>
+                Now that you know what we're building, go to the GitHub
+                repository for the
+                <a
+                  href="https://github.com/perliedman/leaflet-control-geocoder"
+                  target="_blank"
+                  title="To GitHub repository for Leaflet Control Geocoder plug-in"
+                  >Leaflet Control Geocoder plug-in</a
+                >.
+              </li>
+              <li>
+                Scroll down to the documentation underneath the repository. Go
+                to the "Usage" section and copy both the link and script tags
+                you see there.
+              </li>
+              <li>
+                Paste that code into the head of your index.html file. You have
+                now imported the geocoder plug-in's
+                <abbr title="Cascading Style Sheets">CSS</abbr> and
+                <abbr title="JavaScript">JS</abbr> to your project.
+              </li>
+              <li>
+                Assuming that you have already initialized your map and added a
+                tile layer (such as OpenStreetMap) to the map, you can now add
+                the geocoder to the map. Simply add this line of code to your
+                <abbr title="JavaScript">JS</abbr> code underneath where you
+                initialized the map and added the tile layer(s): <br /><span
+                  class="code"
+                  >L.Control.geocoder().addTo(map);</span
+                >
+              </li>
+              <ul>
+                <li>
+                  By now, the <em>addTo(map)</em> method should be familiar. To
+                  read about the <em>L.Control</em> method for adding map
+                  controls, go to
+                  <a href="https://leafletjs.com/reference.html#control"
+                    >this section</a
+                  >
+                  of Leaflet's documentation.
+                </li>
+              </ul>
+              <li>
+                That's it! Take a look at your map in the browser to verify that
+                the icon of the magnifying glass is there and that the search
+                engine is working.
+              </li>
+              <ul>
+                <li>
+                  If you want to explore some advanced customization options,
+                  return to the section labeled "Customizing" on the
+                  <a
+                    href="https://github.com/perliedman/leaflet-control-geocoder"
+                    target="_blank"
+                    title="To GitHub repository for Leaflet Control Geocoder plug-in"
+                    >Leaflet Control Geocoder plug-in's documentation</a
+                  >.
+                </li>
+              </ul>
+            </ol>
+          </article>
+        </div>
+      </div>
+      <div class="chapter-five">
+        <div class="inset-wrapper">
+          <article>
+            <h3 id="resources-leaflet">Resources | Leaflet:</h3>
+            <ul>
+              <li>
+                Leaflet documentation:
+                <a
+                  href="https://leafletjs.com/"
+                  target="_blank"
+                  title="To Leaflet's official documentation"
+                  >https://leafletjs.com/</a
+                >
+              </li>
+              <li>
+                Leaflet providers preview:
+                <a
+                  href="https://leaflet-extras.github.io/leaflet-providers/preview/"
+                  target="_blank"
+                  title="To Leaflet-providers-preview"
+                  >https://leaflet-extras.github.io/leaflet-providers/preview/</a
+                >
+              </li>
+              <li>
+                OpenStreetMap's about page:
+                <a
+                  href="https://www.openstreetmap.org/about"
+                  target="_blank"
+                  title="To OpenStreetMap's about page"
+                  >https://www.openstreetmap.org/about</a
+                >
+              </li>
+              <li>
+                OpenStreetMap's page concerning copyright and attribution:
+                <a
+                  href="https://www.openstreetmap.org/copyright"
+                  target="_blank"
+                  title="To OpenStreetMap's page Copyright and License "
+                  >https://www.openstreetmap.org/copyright</a
+                >
+              </li>
+              <li>
+                Leaflet Control Geocoder plug-in (GitHub repository and
+                documenation):
+                <a
+                  href="https://github.com/perliedman/leaflet-control-geocoder"
+                  target="_blank"
+                  title="To GitHub repository for Leaflet Control Geocoder plug-in"
+                  >https://github.com/perliedman/leaflet-control-geocoder</a
+                >
+              </li>
+              <li>
+                "Search places by location || OSM geocoder" by Tekson (2-minute
+                video tutorial on YouTube):
+                <a
+                  href="https://www.youtube.com/watch?v=Es1R6iV5wPM&list=PLyWyQBSWLw1NH1wsA0wkSMTlQ45P0AqCj&index=10"
+                  target="_blank"
+                  title="To YouTube video tutorial: Search places by location || OSM geocoder"
+                  >https://www.youtube.com/watch?v=Es1R6iV5wPM&list=PLyWyQBSWLw1NH1wsA0wkSMTlQ45P0AqCj&index=10</a
+                >
+              </li>
+              <li>
+                "Leaflet crash course - All you need to know about leaflet" by
+                Tekson/GeoDev (a comprehensive, hour-long video demo on YouTube
+                assuming no prior knowledge of Leaflet):
+                <a
+                  href="https://www.youtube.com/watch?v=ls_Eue1xUtY"
+                  target="_blank"
+                  title="To Tekson's Leaflet Crash Course on YouTube"
+                  >https://www.youtube.com/watch?v=ls_Eue1xUtY</a
+                >
+              </li>
+              <ul>
+                <li>
+                  This developer's video playlist on YouTube, "Leaflet from
+                  basic to advance," will save you a lot of time if you want to
+                  organize your learning, see clear examples, and explore
+                  Leaflet's other capabilities more deeply:
+                  <a
+                    href="https://www.youtube.com/playlist?list=PLyWyQBSWLw1NH1wsA0wkSMTlQ45P0AqCj"
+                    target="_blank"
+                    title="To YouTube video playlist: Leaflet from basic to advance by GeoDev"
+                    >https://www.youtube.com/playlist?list=PLyWyQBSWLw1NH1wsA0wkSMTlQ45P0AqCj</a
+                  >
+                </li>
+              </ul>
+              <li>
+                "1.5 Mapping Geolocation with Leaflet.js - Working with Data and
+                APIs in JavaScript" by The Coding Train (a fifteen-minute video
+                demo on YouTube assuming no prior knowledge of Leaflet):
+                <a
+                  href="https://www.youtube.com/watch?v=nZaZ2dB6pow"
+                  target="_blank"
+                  title="To YouTube video: 1.5 Mapping Geolocation with Leaflet.js - Working with Data and APIs in JavaScript by The Coding Train"
+                  >https://www.youtube.com/watch?v=nZaZ2dB6pow</a
+                >
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+      <div class="chapter-six">
+        <div class="inset-wrapper">
+          <article>
+            <h3 id="resources-react-leaflet">Resources | React Leaflet:</h3>
+            <ul>
+              <li>
+                React Leaflet documentation:
+                <a
+                  href="https://react-leaflet.js.org/"
+                  target="_blank"
+                  title="React Leaflet documentation"
+                  >https://react-leaflet.js.org/</a
+                >
+              </li>
+              <li>
+                Mapping with React Leaflet (a video course playlist with
+                high-quality one- to two-minute tutorials):
+                <a
+                  href="https://egghead.io/courses/mapping-with-react-leaflet-e0e0"
+                  target="_blank"
+                  title="To Mapping with React Leaflet video playlist"
+                  >https://egghead.io/courses/mapping-with-react-leaflet-e0e0</a
+                >
+              </li>
+              <li>
+                React Leaflet tutorial (an article with a fun twenty-minute
+                video demo):
+                <a
+                  href="https://blog.logrocket.com/react-leaflet-tutorial/"
+                  target="_blank"
+                  title="To React Leaflet tutorial"
+                  >https://blog.logrocket.com/react-leaflet-tutorial/</a
+                >
+              </li>
+            </ul>
+          </article>
+          <button class="back-to-top" type="button">
+            <a href="#leaflet-tutorial">BACK TO THE TOP OF THIS PAGE</a>
+          </button>
+        </div>
+      </div>
+      <div class="footer-wrapper">
+        <div class="inset-wrapper">
+          <footer>
+            <p>
               <a
-                href="https://github.com/perliedman/leaflet-control-geocoder"
+                href="https://github.com/AddyLopez/leaflet-app"
+                title="To GitHub repository for this project"
                 target="_blank"
-                title="To GitHub repository for Leaflet Control Geocoder plug-in"
-                >Leaflet Control Geocoder plug-in's documentation</a
-              >.
-            </li>
-          </ul>
-        </ol>
-      </article>
-      <article>
-        <h3 id="resources-leaflet">Resources | Leaflet:</h3>
-        <ul>
-          <li>
-            Leaflet documentation:
-            <a
-              href="https://leafletjs.com/"
-              target="_blank"
-              title="To Leaflet's official documentation"
-              >https://leafletjs.com/</a
-            >
-          </li>
-          <li>
-            Leaflet providers preview:
-            <a
-              href="https://leaflet-extras.github.io/leaflet-providers/preview/"
-              target="_blank"
-              title="To Leaflet-providers-preview"
-              >https://leaflet-extras.github.io/leaflet-providers/preview/</a
-            >
-          </li>
-          <li>
-            OpenStreetMap's about page:
-            <a
-              href="https://www.openstreetmap.org/about"
-              target="_blank"
-              title="To OpenStreetMap's about page"
-              >https://www.openstreetmap.org/about</a
-            >
-          </li>
-          <li>
-            OpenStreetMap's page concerning copyright and attribution:
-            <a
-              href="https://www.openstreetmap.org/copyright"
-              target="_blank"
-              title="To OpenStreetMap's page Copyright and License "
-              >https://www.openstreetmap.org/copyright</a
-            >
-          </li>
-          <li>
-            Leaflet Control Geocoder plug-in (GitHub repository and
-            documenation):
-            <a
-              href="https://github.com/perliedman/leaflet-control-geocoder"
-              target="_blank"
-              title="To GitHub repository for Leaflet Control Geocoder plug-in"
-              >https://github.com/perliedman/leaflet-control-geocoder</a
-            >
-          </li>
-          <li>
-            "Search places by location || OSM geocoder" by Tekson (2-minute
-            video tutorial on YouTube):
-            <a
-              href="https://www.youtube.com/watch?v=Es1R6iV5wPM&list=PLyWyQBSWLw1NH1wsA0wkSMTlQ45P0AqCj&index=10"
-              target="_blank"
-              title="To YouTube video tutorial: Search places by location || OSM geocoder"
-              >https://www.youtube.com/watch?v=Es1R6iV5wPM&list=PLyWyQBSWLw1NH1wsA0wkSMTlQ45P0AqCj&index=10</a
-            >
-          </li>
-          <li>
-            "Leaflet crash course - All you need to know about leaflet" by
-            Tekson/GeoDev (a comprehensive, hour-long video demo on YouTube
-            assuming no prior knowledge of Leaflet):
-            <a
-              href="https://www.youtube.com/watch?v=ls_Eue1xUtY"
-              target="_blank"
-              title="To Tekson's Leaflet Crash Course on YouTube"
-              >https://www.youtube.com/watch?v=ls_Eue1xUtY</a
-            >
-          </li>
-          <ul>
-            <li>
-              This developer's video playlist on YouTube, "Leaflet from basic to
-              advance," will save you a lot of time if you want to organize your
-              learning, see clear examples, and explore Leaflet's other
-              capabilities more deeply:
-              <a
-                href="https://www.youtube.com/playlist?list=PLyWyQBSWLw1NH1wsA0wkSMTlQ45P0AqCj"
-                target="_blank"
-                title="To YouTube video playlist: Leaflet from basic to advance by GeoDev"
-                >https://www.youtube.com/playlist?list=PLyWyQBSWLw1NH1wsA0wkSMTlQ45P0AqCj</a
+                class="footer-link"
+                >Annotated open-source code</a
               >
-            </li>
-          </ul>
-          <li>
-            "1.5 Mapping Geolocation with Leaflet.js - Working with Data and
-            APIs in JavaScript" by The Coding Train (a fifteen-minute video demo
-            on YouTube assuming no prior knowledge of Leaflet):
-            <a
-              href="https://www.youtube.com/watch?v=nZaZ2dB6pow"
-              target="_blank"
-              title="To YouTube video: 1.5 Mapping Geolocation with Leaflet.js - Working with Data and APIs in JavaScript by The Coding Train"
-              >https://www.youtube.com/watch?v=nZaZ2dB6pow</a
-            >
-          </li>
-        </ul>
-      </article>
-      <article>
-        <h3 id="resources-react-leaflet">Resources | React Leaflet:</h3>
-        <ul>
-          <li>
-            React Leaflet documentation:
-            <a
-              href="https://react-leaflet.js.org/"
-              target="_blank"
-              title="React Leaflet documentation"
-              >https://react-leaflet.js.org/</a
-            >
-          </li>
-          <li>
-            Mapping with React Leaflet (a video course playlist with
-            high-quality one- to two-minute tutorials):
-            <a
-              href="https://egghead.io/courses/mapping-with-react-leaflet-e0e0"
-              target="_blank"
-              title="To Mapping with React Leaflet video playlist"
-              >https://egghead.io/courses/mapping-with-react-leaflet-e0e0</a
-            >
-          </li>
-          <li>
-            React Leaflet tutorial (an article with a fun twenty-minute video
-            demo):
-            <a
-              href="https://blog.logrocket.com/react-leaflet-tutorial/"
-              target="_blank"
-              title="To React Leaflet tutorial"
-              >https://blog.logrocket.com/react-leaflet-tutorial/</a
-            >
-          </li>
-        </ul>
-      </article>
-      <button class="back-to-top" type="button">
-        <a href="#leaflet-tutorial">BACK TO THE TOP OF THIS PAGE</a>
-      </button>
-    </main>
-    <hr />
-    <footer class="text">
-      <p>
-        <a
-          href="https://github.com/AddyLopez/leaflet-app"
-          title="To GitHub repository for this project"
-          target="_blank"
-          class="footer-link"
-          >Annotated open-source code</a
-        >
-        and text by
-        <a
-          href="https://ubiquitous-froyo-69b6d7.netlify.app/"
-          title="To Addy's personal website"
-          target="_blank"
-          class="footer-link"
-          >Addy López</a
-        >
-      </p>
-    </footer>
+              and text by
+              <a
+                href="https://ubiquitous-froyo-69b6d7.netlify.app/"
+                title="To Addy's personal website"
+                target="_blank"
+                class="footer-link"
+                >Addy López</a
+              >
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

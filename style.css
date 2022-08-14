@@ -1,5 +1,4 @@
 body {
-  background-color: hsl(150deg 42% 90%);
   font-family: Arial, Helvetica, sans-serif;
 }
 ul {
@@ -33,17 +32,54 @@ a:active {
 hr {
   border-top: 1px solid hsl(174deg 73% 19%);
 }
-div.icon-attribution {
+.icon-attribution {
   text-align: right;
 }
 .code {
   background-color: lavender;
+  word-wrap: break-word;
   font-family: monospace;
 }
-.text {
-  margin: calc(4% + 2px) auto;
-  width: clamp(200px, 75%, 1000px);
+
+.header-wrapper {
+  background-color: green;
 }
+.header-wrapper,
+.chapter-one,
+.chapter-two,
+.chapter-three,
+.chapter-four,
+.chapter-five,
+.chapter-six,
+.footer-wrapper {
+  padding: 12px;
+}
+.chapter-one {
+  background-color: salmon;
+}
+.chapter-two {
+  background-color: yellow;
+}
+.chapter-three {
+  background-color: orange;
+}
+.chapter-four {
+  background-color: lightblue;
+}
+.chapter-five {
+  background-color: violet;
+}
+.chapter-six {
+  background-color: goldenrod;
+}
+.footer-wrapper {
+  background-color: red;
+}
+.inset-wrapper {
+  margin: 0 auto;
+  width: clamp(350px, 75%, 1000px);
+}
+
 button.back-to-top {
   background-color: mintcream;
   border: 1px solid hsl(174deg 73% 19%);
@@ -71,4 +107,15 @@ button.back-to-top a {
   color: white;
   margin-left: 45px;
   padding: 0 3px;
+}
+@media only screen and (max-width: 480px) {
+  ol {
+    padding-left: 15px;
+  }
+  .inset-wrapper {
+    width: 100%;
+  }
+  a {
+    word-wrap: break-word;
+  }
 }
