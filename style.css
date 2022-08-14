@@ -131,12 +131,24 @@ button.back-to-top a {
   margin-left: 45px;
   padding: 0 3px;
 }
-#leaflet-map a,
+.leaflet-container a {
+  color: #0078a8;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  color: hsl(0, 0%, 100%);
+}
+.leaflet-container a.leaflet-popup-close-button:hover {
+  color: hsl(0, 0%, 100%);
+}
 .icon-attribution a {
   color: hsl(240, 100%, 50%);
 }
 .icon-attribution a {
   text-decoration: none;
+}
+.leaflet-control-geocoder-address-context {
+  color: hsl(0deg 0% 75%);
 }
 
 @media only screen and (max-width: 480px) {
