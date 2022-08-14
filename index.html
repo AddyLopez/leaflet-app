@@ -505,8 +505,12 @@
             >
           </li>
           <li>
-            Finally, with your code formatted in this manner, you can add the
-            pop-up to the map on the next line of your coding editor. Call the
+            Finally, with your code formatted in this manner, you can eliminate
+            the
+            <em>addTo(map)</em> method called on the default marker in step 6 of
+            "To create a default marker" in this tutorial. Instead, you can add
+            the default marker and the pop-up together in one line of code to
+            the map. So, on the next line of your coding editor, call the
             <em>addTo(map)</em> method on the variable you declared for storing
             the pop-up. For example:
             <br />
@@ -527,8 +531,138 @@
             customized icon. Click on the thermometer icon to see the pop-up
             message!
           </li>
-          <li>Customized marker 2</li>
+          <li>
+            Before we create the new marker, let's store the information for our
+            customized icon in a new variable. Here is an example of how to
+            generate a customized icon in Leaflet:
+            <br />
+            <span class="code"
+              >const customIcon = L.icon({iconUrl:
+              "./images/thermometer-icon-marker.png", iconSize: [45, 45],
+              });</span
+            >
+          </li>
+          <ul>
+            <li>
+              Explanation of the code above: The keyword <em>const</em> declares
+              a constant variable named <em>customIcon</em>. After the
+              assignment operator, Leaflet (that is, <em>L</em>) is instructed
+              to generate an icon by using the <em>icon</em> method. In
+              parentheses, the argument of the <em>icon</em> method is an object
+              in curly braces. The object has two properties:
+              <em>iconUrl</em> and <em>iconSize</em>, separated by a comma. The
+              value of the property <em>iconUrl</em> is the path to the image
+              file to be used as the customized icon. It is wrapped in quotation
+              marks. The value of the property <em>iconSize</em> is an array
+              with two integer values separated by a comma. The first integer
+              value represents the width in pixels of the icon, while the second
+              integer value represents its height in pixels.
+            </li>
+            <li>
+              <strong>Note:</strong> The value of the property
+              <em>iconUrl</em> can be either the path to the image file or the
+              URL at which that image is hosted.
+            </li>
+            <li>
+              To see other optional properties you could use to further
+              customize the icon's appearance, go to Leaflet's documentation on
+              <a
+                href="https://leafletjs.com/examples/custom-icons/"
+                target="_blank"
+                title="To Leaflet's documentation: Markers with Custom Icons"
+                >Markers with Custom Icons</a
+              >.
+            </li>
+          </ul>
+          <li>
+            Now let's create a new marker that will use the customized icon.
+            Declare a new variable to store the new marker. As with the default
+            marker, you will have to specify the coordinates at which you would
+            like the marker to appear. After the coordinates, include the icon
+            option as a second parameter, like this:
+            <br />
+            <span class="code"
+              >const customMarker = L.marker([50.4501, 30.5234], { icon:
+              customIcon, });</span
+            >
+          </li>
+          <ul>
+            <li>
+              Explanation of the code above: The keyword <em>const</em> declares
+              a new constant variable named <em>customMarker</em>. After the
+              assignment operator, Leaflet (that is, <em>L</em>) is instructed
+              to generate a marker. In this case, the <em>marker</em> method
+              takes two arguments separated by a comma, with the two arguments
+              wrapped in parentheses. The first argument is the latitude and
+              longitude separated by a comma and wrapped in square brackets. The
+              second argument uses curly braces and includes the icon option.
+              The value of the property <em>icon</em> is the variable
+              <em>customIcon</em> that we created in the previous step.
+            </li>
+          </ul>
+          <li>
+            To add the new marker with the customized icon to the map, call the
+            <em>addTo(map)</em> method on the variable you created in the
+            previous step. For example,
+            <br />
+            <span class="code">customMarker.addTo(map);</span>
+          </li>
         </ol>
+        <h4>To add a pop-up on this customized marker:</h4>
+        <ol>
+          <li>
+            This process is essentially the same as the process to add a pop-up
+            on the default marker. The only difference is that the customized
+            icon needed to be generated and included in a new marker before
+            binding the pop-up to it. Below is an example of a pop-up on the
+            customized marker that we created above:
+            <br />
+            <span class="code"
+              >const customMarkerPopup = customMarker.bindPopup("I am a pop-up
+              on the customized marker!").openPopup();</span
+            >
+          </li>
+          <li>
+            Finally, when we add <em>customMarkerPopup</em> to the map using the
+            <em>addTo(map)</em> method, we can refactor our code. Eliminate the
+            line of code added in step 4 of "For a customized marker." When you
+            add the following code, it will add the pop-up with the marker
+            simultaneously to the map:
+            <br />
+            <span class="code">customMarkerPopup.addTo(map);</span>
+          </li>
+        </ol>
+        <h4>To customize the pop-up display using CSS:</h4>
+        <ul>
+          <li>
+            It is possible to change how the pop-up looks. Because markers are
+            important for displaying data at particular locations, it is worth
+            experimenting with DevTools in the browser to customize how data are
+            being displayed. (By "DevTools," I mean the developer tools that are
+            available when you "right-click" on a web page and select the
+            "Inspect" option from the drop-down list.) By using DevTools to
+            target elements on the map that reveal Leaflet's CSS classes, you
+            can easily override Leaflet's default styling and reassign
+            properties to customize elements like pop-ups. For instance, in the
+            map at the top of this web page, the default styling of the pop-ups,
+            which had a white background and black text, has been changed to a
+            black background with the text in white. Far more elaborate changes
+            are possible.
+          </li>
+          <li>
+            You are welcome to experiment with my map, hack the current CSS
+            using DevTools, and discover which of Leaflet's classes are
+            controlling the default appearance of elements. That's how I
+            learned.
+          </li>
+          <li>
+            Once you have identified which classes control what, you can target
+            those classes from your CSS outside of the browser in your text
+            editor to make the changes persist. Otherwise, the changes that you
+            make in DevTools alone will disappear upon refreshing the page. Good
+            luck, and have fun!
+          </li>
+        </ul>
       </article>
       <article>
         <h3 id="add-tile-layers">
