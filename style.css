@@ -18,11 +18,11 @@ footer p {
 }
 
 a {
-  color: hsl(174deg 73% 19%);
+  color: blue;
   text-decoration: none;
 }
 a:visited {
-  color: hsl(174deg 73% 19%);
+  color: blue;
 }
 a:hover {
   text-decoration: underline;

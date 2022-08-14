@@ -140,6 +140,12 @@
             >
           </li>
           <li>
+            <a href="#geocoder"
+              >How to Include a Geocoder Plug-in to Search for Cities on the
+              Map</a
+            >
+          </li>
+          <li>
             <a
               href="#resources-react"
               title="Jump directly to Resources | Leaflet"
@@ -586,10 +592,10 @@
               <em>layerControl</em> is declared. To the right of the assignment
               operator, the in-built <em>control</em> method tells Leaflet (that
               is, <em>L</em>) to add the layers provided in parentheses to the
-              map. The first argument of <em>layers</em> is <em>baseMaps</em>,
-              and it takes the base layers' object. The second argument of
-              <em>layers</em> is <em>overlayMaps</em>, and it takes the
-              overlays' object.
+              map. The first argument of the <em>layers</em> method is
+              <em>baseMaps</em>, and it takes the base layers' object. The
+              second argument of the <em>layers</em> method is
+              <em>overlayMaps</em>, and it takes the overlays' object.
             </li>
           </ul>
           <li>
@@ -621,6 +627,81 @@
             turn, does the display change? If something went wrong, review the
             steps and information above.
           </li>
+        </ol>
+      </article>
+      <article>
+        <h3 id="geocoder">
+          How to Include a Geocoder Plug-in to Search for Cities on the Map:
+        </h3>
+        <ol>
+          <li>
+            To start, glance at the map at the top of this web page. Look for
+            the small icon of a magnifying glass in the top-right corner. When
+            you click on the icon, a search bar will unfold. Type in the name of
+            a city and press Enter. A drop-down menu of valid locations will
+            appear. When you select a location from the list, the map's view
+            will change to that location, and you will see a marker with an open
+            pop-up that reads the location's name! That is the feature that the
+            geocoder plug-in enables.
+          </li>
+          <li>
+            Now that you know what we're building, go to the GitHub repository
+            for the
+            <a
+              href="https://github.com/perliedman/leaflet-control-geocoder"
+              target="_blank"
+              title="To GitHub repository for Leaflet Control Geocoder plug-in"
+              >Leaflet Control Geocoder plug-in</a
+            >.
+          </li>
+          <li>
+            Scroll down to the documentation underneath the repository. Go to
+            the "Usage" section and copy both the link and script tags you see
+            there.
+          </li>
+          <li>
+            Paste that code into the head of your index.html file. You have now
+            imported the geocoder plug-in's
+            <abbr title="Cascading Style Sheets">CSS</abbr> and
+            <abbr title="JavaScript">JS</abbr> to your project.
+          </li>
+          <li>
+            Assuming that you have already initialized your map and added a tile
+            layer (such as OpenStreetMap) to the map, you can now add the
+            geocoder to the map. Simply add this line of code to your
+            <abbr title="JavaScript">JS</abbr> code underneath where you
+            initialized the map and added the tile layer(s): <br /><span
+              class="code"
+              >L.Control.geocoder().addTo(map);</span
+            >
+          </li>
+          <ul>
+            <li>
+              By now, the <em>addTo(map)</em> method should be familiar. To read
+              about the <em>L.Control</em> method for adding map controls, go to
+              <a href="https://leafletjs.com/reference.html#control"
+                >this section</a
+              >
+              of Leaflet's documentation.
+            </li>
+          </ul>
+          <li>
+            That's it! Take a look at your map in the browser to verify that the
+            icon of the magnifying glass is there and that the search engine is
+            working.
+          </li>
+          <ul>
+            <li>
+              If you want to explore some advanced customization options, return
+              to the section labeled "Customizing" on the
+              <a
+                href="https://github.com/perliedman/leaflet-control-geocoder"
+                target="_blank"
+                title="To GitHub repository for Leaflet Control Geocoder plug-in"
+                >Leaflet Control Geocoder plug-in's documentation</a
+              >.
+            </li>
+          </ul>
         </ol>
       </article>
       <article>
@@ -660,6 +741,26 @@
               target="_blank"
               title="To OpenStreetMap's page Copyright and License "
               >https://www.openstreetmap.org/copyright</a
+            >
+          </li>
+          <li>
+            Leaflet Control Geocoder plug-in (GitHub repository and
+            documenation):
+            <a
+              href="https://github.com/perliedman/leaflet-control-geocoder"
+              target="_blank"
+              title="To GitHub repository for Leaflet Control Geocoder plug-in"
+              >https://github.com/perliedman/leaflet-control-geocoder</a
+            >
+          </li>
+          <li>
+            "Search places by location || OSM geocoder" by Tekson (2-minute
+            video tutorial on YouTube):
+            <a
+              href="https://www.youtube.com/watch?v=Es1R6iV5wPM&list=PLyWyQBSWLw1NH1wsA0wkSMTlQ45P0AqCj&index=10"
+              target="_blank"
+              title="To YouTube video tutorial: Search places by location || OSM geocoder"
+              >https://www.youtube.com/watch?v=Es1R6iV5wPM&list=PLyWyQBSWLw1NH1wsA0wkSMTlQ45P0AqCj&index=10</a
             >
           </li>
           <li>
