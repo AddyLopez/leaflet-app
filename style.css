@@ -1,3 +1,5 @@
+/* General styling and formatting of Tutorial's text */
+
 body {
   background-color: hsl(195, 53%, 79%);
   color: hsla(0, 0%, 100%, 1);
@@ -7,14 +9,17 @@ body {
 ul {
   padding-left: 25px;
 }
-li,
-p {
+p,
+li {
   line-height: 1.5;
 }
+
 footer {
   letter-spacing: 1px;
   text-align: center;
 }
+
+/* Color of links chosen with appropriate contrast ratios on par with standard accessibility guidelines */
 
 .full-leaflet-tutorial a {
   color: hsl(82, 100%, 86%);
@@ -30,16 +35,16 @@ a:active {
   font-weight: bold;
 }
 
-.icon-attribution {
-  padding-right: 5px;
-  text-align: right;
-}
+/* This ruleset acts as a utility class to format lines of instructional code in the Tutorial  */
 .code {
   background-color: hsl(240, 72%, 18%);
   font-family: monospace;
+  font-size: 16px;
   word-wrap: break-word;
+  padding: 0 4px;
 }
 
+/* These rule sets format the spacing and background colors of each section of the Tutorial */
 .header-wrapper,
 .menu-wrapper,
 .chapter-one,
@@ -82,6 +87,8 @@ a:active {
   margin: 0 auto;
   width: clamp(350px, 75%, 1000px);
 }
+
+/* This rule set heightens the contrast ratio between links and the background colors of certain sections to improve accessibility */
 .menu-wrapper a,
 .chapter-five a,
 .menu-wrapper:visited a,
@@ -89,49 +96,75 @@ a:active {
   color: hsl(82deg 100% 92%);
 }
 
+/* These rule sets style the Tutorial's "jump to" buttons */
+.button-wrapper {
+  text-align: center;
+}
+
 button.jump-to-map {
   background-color: hsl(195deg 53% 39%);
   border: 2px solid hsl(0, 0%, 100%);
   border-radius: 8px;
-  padding: 12px;
   font-weight: bold;
+  padding: 12px;
 }
+
 button.jump-to-map a {
   color: hsl(0, 0%, 100%);
+  font-size: 16px;
 }
 
 button.back-to-top {
   background-color: hsl(284, 11%, 43%);
   border: 2px solid hsl(0, 0%, 100%);
   border-radius: 8px;
+  font-weight: bold;
   margin: 15px 0;
   padding: 12px;
-  font-weight: bold;
 }
+
 button.back-to-top a {
   color: hsl(0, 0%, 100%);
+  font-size: 16px;
   text-decoration: none;
 }
-.button-wrapper {
-  text-align: center;
+
+button.jump-to-map a:hover,
+button.back-to-top a:hover {
+  text-decoration: none;
 }
 
-.leaflet-popup-content-wrapper,
-.leaflet-popup-tip {
-  background-color: hsl(0, 0%, 0%);
-  color: hsl(0, 0%, 100%);
+button.jump-to-map:active {
+  background-color: hsl(195deg 53% 35%);
+  transform: translate(1px, 1px);
+  -moz-transform: translate(1px, 1px);
+}
+button.back-to-top:active {
+  background-color: hsl(284, 11%, 39%);
+  transform: translate(1px, 1px);
+  -moz-transform: translate(1px, 1px);
 }
 
+/* IMPORTANT: Specification of both height and width is essential to initializing the map */
 #leaflet-map {
   height: 75vh;
   width: 100%;
 }
+
+/* This rule set styles the coordinates in the top-left corner of the map */
 #coordinates {
   background-color: hsla(240, 100%, 47%, 0.4);
   border-radius: 3px;
   color: hsl(0, 0%, 100%);
   margin-left: 45px;
   padding: 0 3px;
+}
+
+/* These rule sets overwrite Leaflet's classes to override the default styles (on containers, pop-ups, pop-up tips, buttons, links) */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background-color: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
 }
 .leaflet-container a,
 .icon-attribution a {
@@ -144,16 +177,25 @@ button.back-to-top a {
 .leaflet-container a.leaflet-popup-close-button:hover {
   color: hsl(0, 0%, 100%);
 }
+
+/* These rule sets style the attribution (directly under the map) for the customized icon */
+.icon-attribution {
+  padding-right: 5px;
+  text-align: right;
+}
 .icon-attribution a {
   color: hsl(240, 100%, 50%);
 }
 .icon-attribution a {
   text-decoration: none;
 }
+
+/* Overwrites the geogoder's class(es) to override the default style(s) */
 .leaflet-control-geocoder-address-context {
   color: hsl(0deg 0% 75%);
 }
 
+/* Media query for responsive styling on devices with smaller screens */
 @media only screen and (max-width: 480px) {
   ol {
     padding-left: 15px;
