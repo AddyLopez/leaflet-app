@@ -22,4 +22,4 @@ Tutorial includes from top to bottom
 
 ## Preview
 
-![Leaflet Tutorial App Preview Image 1](images/preview/leaflet-tutorial-preview-) ![Leaflet Tutorial App Preview Image 2](images/preview/leaflet-tutorial-preview-1.png)
+![Leaflet Tutorial App Preview Image 1](images/preview/leaflet-tutorial-preview-1.png) ![Leaflet Tutorial App Preview Image 2](images/preview/leaflet-tutorial-preview-2.png)
