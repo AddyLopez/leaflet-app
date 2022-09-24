@@ -8,7 +8,7 @@ A self-directed, independently motivated experiment in exploring Leaflet using v
 
 The web page provides a short step-by-step tutorial for developers to get started with Leaflet in order to build interactive map features that can be integrated with other data. Learn how to initialize a map, create a marker with a pop-up, add a layers control, and include a geocoder to search for different cities.
 
-Tutorial includes from top to bottom
+Tutorial includes from top to bottom:
 
 1. a map to facillitate instruction and learning,
 2. background information to clarify the project's raison d'être,
@@ -32,9 +32,11 @@ Tutorial includes from top to bottom
 
 - Site menu and handy "jump to" buttons for learners to toggle back and forth between the map and each section while learning
 
+- A polished README using Markdown
+
 ## Accessibility & Design Considerations:
 
-- Informed typography: In line with the standard Web Content Accessibility Guidelines, the minimum font-size is sixteen pixels, and the line-height is set to 1.5.
+- Informed typography: In line with the standard Web Content Accessibility Guidelines, the minimum font-size is sixteen pixels, and the line-height is set to 1.5. The chosen font (imported from Google Fonts), with its clean sans-serif characters and pleasing balance of round and straight edges, was selected for its legibility and poise. Some extra white space between list items makes the numbered and bullet-pointed instructions easier to follow without getting lost. Additionally, presenting code snippets in a monospaced typeface visually differentiates their function from the rest of the text and makes them easy to identify. Together, these typographical decisions should make this page more aesthetically appealing to my target audience of developers and entice them to actually use the resource I created.
 
 - Experimentation with Adobe Color's color wheel to generate a "double split complementary" color scheme, which I then further refined. The earthy tones complement the dominant terrestrial green (punning on the "Leaf" in "Leaflet") yet also cut beneficially against the visual monotony of the text. The sectional background colors serve a pedagogical purpose and improve the UI for learners because they each group content based on a discrete skill that is being taught; further, they make it more likely that, in associating the technical information with a different color, the learner will better remember what is read. The warmly dull, clay-like undertones are easy on the eye when reading slowly, while the high contrast of the dark blue code examples make it easy to skim the page and locate that information without the cumbersome process of having to comb through every line.
 

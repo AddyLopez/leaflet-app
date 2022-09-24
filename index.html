@@ -398,54 +398,54 @@
                   >overview</a
                 >
                 to add the tile layer to the map.
-                <ul>
-                  <li>
-                    The tile layer includes a URL and an attribution, so that
-                    credit is given where credit is due.
-                  </li>
-                  <ul>
-                    <li>
-                      In the map at the top of this web page, each of the map
-                      display options in the top-right corner (excluding the
-                      markers) represents a different tile layer. The
-                      attribution appears with a link to Leaflet at the bottom
-                      or bottom-right corner of the map.
-                    </li>
-                    <li>
-                      To learn more about tile layers, check out
-                      <a
-                        href="https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/adding-tile-layers-to-your-web-map/#:~:text=A%20tile%20layer%20is%20a,format%20on%20the%20web%20server."
-                        target="_blank"
-                        title="Adding Tile Layers to Your Web Map | ArcGIS Blog"
-                        >this blog post</a
-                      >.
-                    </li>
-                  </ul>
-                </ul>
-                <ul>
-                  <li>
-                    Here is the sample given:<br />
-                    <span class="code"
-                      >L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                      {attribution: '&copy;
-                      <a href="https://www.openstreetmap.org/copyright"
-                        >OpenStreetMap</a
-                      >
-                      contributors'}).addTo(map);</span
-                    >
-                  </li>
-                  <ul>
-                    <li>
-                      <strong>Note:</strong> Copy the attribution's code
-                      directly from the documentation, not from the sample given
-                      here. The browser's user agent rendered the symbol for
-                      copyright and the anchor link wrapping "OpenStreetMap,"
-                      interpreting the code instead of faithfully transcribing
-                      it character by character.
-                    </li>
-                  </ul>
-                </ul>
               </li>
+              <ul>
+                <li>
+                  The tile layer includes a URL and an attribution, so that
+                  credit is given where credit is due.
+                </li>
+                <ul>
+                  <li>
+                    In the map at the top of this web page, each of the map
+                    display options in the top-right corner (excluding the
+                    markers) represents a different tile layer. The attribution
+                    appears with a link to Leaflet at the bottom or bottom-right
+                    corner of the map.
+                  </li>
+                  <li>
+                    To learn more about tile layers, check out
+                    <a
+                      href="https://www.esri.com/arcgis-blog/products/arcgis-online/mapping/adding-tile-layers-to-your-web-map/#:~:text=A%20tile%20layer%20is%20a,format%20on%20the%20web%20server."
+                      target="_blank"
+                      title="Adding Tile Layers to Your Web Map | ArcGIS Blog"
+                      >this blog post</a
+                    >.
+                  </li>
+                </ul>
+              </ul>
+              <ul>
+                <li>
+                  Here is the sample given:<br />
+                  <span class="code"
+                    >L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    {attribution: '&copy;
+                    <a href="https://www.openstreetmap.org/copyright"
+                      >OpenStreetMap</a
+                    >
+                    contributors'}).addTo(map);</span
+                  >
+                </li>
+                <ul>
+                  <li>
+                    <strong>Note:</strong> Copy the attribution's code directly
+                    from the documentation, not from the sample given here. The
+                    browser's user agent rendered the symbol for copyright and
+                    the anchor link wrapping "OpenStreetMap," interpreting the
+                    code instead of faithfully transcribing it character by
+                    character.
+                  </li>
+                </ul>
+              </ul>
 
               <li>
                 Assign this code to a variable (for example,
