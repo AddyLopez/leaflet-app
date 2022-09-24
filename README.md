@@ -26,7 +26,7 @@ Tutorial includes from top to bottom:
 
 - Responsive CSS, with testing for devices of all sizes using the toggle device toolbar in Google Chrome's DevTools
 
-- Interactive, pedagogical map coded with JavaScript. It includes and illustrates every feature that is taught in the tutorial: the initialization of the map, a default marker with a pop-up, a customized marker with a pop-up, a layers control that can toggle between five different tile layers and affect the visibility of both markers, a geocoder to search for different locations on the map, proper attributions, and display of the latitude and longitude of the cursor as it moves across the map.
+- Interactive, pedagogical map coded with JavaScript. It includes and illustrates every feature that is taught in the tutorial and more: the initialization of the map, a default marker with a pop-up, a customized marker with a pop-up, a layers control that can toggle between five different tile layers and affect the visibility of both markers, a geocoder to search for different locations on the map, proper attributions, and display of the latitude and longitude of the cursor as it moves across the map.
 
 - Step-by-step instructions (assuming no prior knowledge of Leaflet) that transmit technical knowledge based on a thorough understanding of the techniques and features outlined in the Leaflet documentation and alluded to in scattered sources across the web. I created this tutorial to offer to my development community a dependable, high-quality reference that consolidates information that to my knowledge can be found nowhere else on the Web all on a single page.
 
