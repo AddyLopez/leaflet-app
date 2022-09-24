@@ -32,6 +32,8 @@ Tutorial includes from top to bottom:
 
 - Site menu and handy "jump to" buttons for learners to toggle back and forth between the map and each section while learning
 
+- Coded in VS Code using professional development workflow tools, such GitHub Desktop and Live Server, and processes, such as continuous deployment, with hosting on Netlify
+
 - A polished README using Markdown
 
 ## Accessibility & Design Considerations:
