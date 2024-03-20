@@ -26,7 +26,6 @@ const openTopoMap = L.tileLayer(
 // Adds the OpenTopoMap tile layer to the map:
 openTopoMap.addTo(map);
 
-/*
 // Stadia_AlidadeSmoothDark tile layer:
 const stadia_AlidadeSmoothDark = L.tileLayer(
   "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
@@ -52,8 +51,6 @@ const stadia_OSMBright = L.tileLayer(
 
 // Adds the Stadia_OSMBright tile layer to the map:
 stadia_OSMBright.addTo(map);
-
-*/
 
 // ESRI NatGeo World Map tile layer:
 const esri_NatGeoWorldMap = L.tileLayer(
@@ -105,8 +102,8 @@ const baseMaps = {
   OpenStreetMap: openStreetMap,
   OpenTopoMap: openTopoMap,
   "Esri NatGeo World Map": esri_NatGeoWorldMap,
-  /* "Stadia_AlidadeSmoothDark Map": stadia_AlidadeSmoothDark,
-  "Stadia_OSMBright Map": stadia_OSMBright, */
+  "Stadia_AlidadeSmoothDark Map": stadia_AlidadeSmoothDark,
+  "Stadia_OSMBright Map": stadia_OSMBright,
 };
 
 // Assigns all the markers to overlayMaps as an object:
