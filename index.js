@@ -26,6 +26,7 @@ const openTopoMap = L.tileLayer(
 // Adds the OpenTopoMap tile layer to the map:
 openTopoMap.addTo(map);
 
+// All of Stadia's maps are free to use but require simple registration. See https://github.com/leaflet-extras/leaflet-providers?tab=readme-ov-file#stadia-maps for more info.
 // Stadia_AlidadeSmoothDark tile layer:
 const stadia_AlidadeSmoothDark = L.tileLayer(
   "https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png",
