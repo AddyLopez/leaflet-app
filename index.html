@@ -426,25 +426,13 @@
               <ul>
                 <li>
                   Here is the sample given:<br />
-                  <span class="code"
-                    >L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                    {attribution: '&copy;
-                    <a href="https://www.openstreetmap.org/copyright"
-                      >OpenStreetMap</a
-                    >
-                    contributors'}).addTo(map);</span
-                  >
+                  <span class="code">
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    {attribution: '&amp;copy&#59; &lt;a
+                    href="https://www.openstreetmap.org/copyright"
+                    &gt;OpenStreetMap&lt;&#47;a&gt; contributors'}).addTo(map);
+                  </span>
                 </li>
-                <ul>
-                  <li>
-                    <strong>Note:</strong> Copy the attribution's code directly
-                    from the documentation, not from the sample given here. The
-                    browser's user agent rendered the symbol for copyright and
-                    the anchor link wrapping "OpenStreetMap," interpreting the
-                    code instead of faithfully transcribing it character by
-                    character.
-                  </li>
-                </ul>
               </ul>
 
               <li>
@@ -453,8 +441,9 @@
                 etc.)
               </li>
               <li>
-                For improved legibility, call the addTo(map) method on this new
-                variable instead of at the end of the line above. For example:
+                For improved legibility, call the <em>addTo(map)</em> method on
+                this new variable instead of at the end of the line above. For
+                example:
                 <span class="code">openStreetMap.addTo(map);</span>
               </li>
               <li>
